@@ -55,5 +55,9 @@
 	header {
 		display:none;
 	}
+	
+	h1 {
+		font-size:1em;
+	}
   
 }
