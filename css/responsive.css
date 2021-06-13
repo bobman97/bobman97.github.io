@@ -73,11 +73,7 @@
 		font-weight:500;
 	}
 	
-	.wrap {
-		min-height:auto;
-	}
-	
 	.wrap:nth-of-type(2) {
-		background-size:auto;
+		background-size:cover;
 	}
 }
