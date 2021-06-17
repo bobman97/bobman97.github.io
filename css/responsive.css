@@ -75,7 +75,14 @@
 		font-weight:500;
 	}
 	
+	article li {
+		list-style-image: none;	
+	}
+	
 	.wrap:nth-of-type(2) {
 		background-size:contain;
+	}
+	.lander li a { /* Vill få referens länkarna att landa under själva referensen */
+		display: block;
 	}
 }
