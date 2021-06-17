@@ -82,7 +82,7 @@
 	.wrap:nth-of-type(2) {
 		background-size:contain;
 	}
-	.lander li a { /* Vill få referens länkarna att landa under själva referensen */
+	.credits li a { /* Vill få referens länkarna att landa under själva referensen */
 		display: block;
 	}
 }
