@@ -84,5 +84,6 @@
 	}
 	.credits li a { /* Vill få referens länkarna att landa under själva referensen */
 		display: block;
+		text-indent: 2em;
 	}
 }
