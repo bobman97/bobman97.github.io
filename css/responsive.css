@@ -86,7 +86,5 @@
 	.wrap:nth-of-type(2) {
 		background-size:contain;
 	}
-	#rickroll {
-		display:none;
-	}
+	
 }
