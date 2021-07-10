@@ -11,22 +11,22 @@
   <link rel="stylesheet" href="css/fonts.css"> <!-- Inställningar på all text -->
   <link rel="stylesheet" href="css/colors.css"> <!-- Val av färger på alla element -->
   <link rel="stylesheet" href="css/responsive.css"> <!-- Mobil/Tablet/Laptop vänlighet sist för att skriva över ovan -->
+	
   <!-- SYNLIGA DETALJER -->
   <title>William Hilmersson</title>
   
  </head>
  <body id="top">
  <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
-  <iframe frameborder="0" height="100%" width="100%"
-    src="https://youtube.com/embed/o-YBDTqX_ZU?rel=0&mute=1&autoplay=1&controls=0&showinfo=0&autohide=1">
-  </iframe>
-	 <embed height="0" width="0"
-  src="http://youtube.googleapis.com/v/o-YBDTqX_ZU&autoplay=1&loop=1" />
+  <iframe id="rickroll" src="https://archive.org/embed/never-gonna-give-you-up-4-k?autoplay=1&loop=1&muted=0" width="100%" height="100%" frameborder="0" allow="autoplay" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+	 <!-- VIKTIG Javascript -->
+	 <script type="text/javascript">
+   var ricky = document.getElementById("rickroll");
+    ricky.muted = false;
+</script>
 </div>
   <footer>
-  	 <div class=""><a href="#sida1">Ta mig till toppen</a></div>
-	 <div class=""><a href="bonus.html">Bonussidan</a></div>
-   <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> & <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  	 <div class=""><a href="index.html">Ta mig tillbaka!</a></div>
   </footer>
  </body>
 </html>
