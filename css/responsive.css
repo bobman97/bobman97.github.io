@@ -26,7 +26,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
+	#rickroll {
+		display:none;
+	}
   /* CSS */
   
 }
@@ -37,7 +39,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
+  #rickroll {
+		display:none;
+	}
   /* CSS */
   
 }
@@ -71,19 +75,18 @@
 		padding-right:0.5em;
 	}
 	
-	article:hover p {
-		font-weight:500;
+	article p {
+		line-height:1.5em;
 	}
 	
-	article li {
-		list-style-image: none;	
+	article:hover p {
+		font-weight:500;
 	}
 	
 	.wrap:nth-of-type(2) {
 		background-size:contain;
 	}
-	.credits li a { /* Vill få referens länkarna att landa under själva referensen */
-		display: block;
-		text-indent: 2em;
+	#rickroll {
+		display:none;
 	}
 }

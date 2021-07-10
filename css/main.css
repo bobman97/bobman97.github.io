@@ -137,7 +137,7 @@ footer {
  border-top: 1px solid #ccc;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width : 1134px ){
  main, aside, footer {
   border:none;
   clear:none;
