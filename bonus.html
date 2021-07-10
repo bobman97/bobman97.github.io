@@ -11,23 +11,31 @@
   <link rel="stylesheet" href="css/fonts.css"> <!-- Inställningar på all text -->
   <link rel="stylesheet" href="css/colors.css"> <!-- Val av färger på alla element -->
   <link rel="stylesheet" href="css/responsive.css"> <!-- Mobil/Tablet/Laptop vänlighet sist för att skriva över ovan -->
+	 <!-- VIKTIG Javascript -->
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	 <script type="text/javascript">
+		 $(document).ready(function() {
+			$("#rickroll").html('<iframe width="100%" height="100%" src="https://archive.org/embed/never-gonna-give-you-up-4-k?loop=1&autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allow="autoplay" fullscreen wmode="Opaque"></iframe>');
+			 $("iframe").load(function() {
+			 if( $("video").prop('muted') ) {
+          			$("video").prop('muted', false);
+    			} else {
+      				$("video").prop('muted', true);
+				}
+			 });
+	   	});
+   
+		 
+</script>
 	
   <!-- SYNLIGA DETALJER -->
   <title>William Hilmersson</title>
   
  </head>
- <body id="top" style='background: url("https://i.imgur.com/yed5Zfk.gif") no-repeat fixed center;height:100%;'>
- <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
-  <iframe id="rickroll" src="https://archive.org/embed/never-gonna-give-you-up-4-k?loop=1" width="100%" height="100%" frameborder="0" allow="autoplay" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen playsinline></iframe>
-	 <!-- VIKTIG Javascript -->
-	 <script type="text/javascript">
-   var ricky = document.getElementById("rickroll");
-    if(ricky.autoplay == false) {
-		ricky.src += "&autoplay=1";
-	}
-		 ricky.muted = false;
-		 
-</script>
+ <body id="top" style="background: url('https://static.wikia.nocookie.net/8b32ff7e-5074-4ed0-bbee-a8fb55c723c2/scale-to-width/755') fixed center;height:100%;background-size:contain;">
+ <div id="rickroll" style="position: fixed; z-index: -99; width: 100%; height: 100%">
+
+	 
 </div>
   <footer>
   	 <div class=""><a href="index.html">Ta mig tillbaka!</a></div>
