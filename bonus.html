@@ -18,11 +18,15 @@
  </head>
  <body id="top">
  <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
-  <iframe id="rickroll" src="https://archive.org/embed/never-gonna-give-you-up-4-k?autoplay=1&loop=1&muted=0" width="100%" height="100%" frameborder="0" allow="autoplay" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+  <iframe id="rickroll" src="https://archive.org/embed/never-gonna-give-you-up-4-k?loop=1" width="100%" height="100%" frameborder="0" allow="autoplay" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
 	 <!-- VIKTIG Javascript -->
 	 <script type="text/javascript">
    var ricky = document.getElementById("rickroll");
-    ricky.muted = false;
+    if(!ricky.autoplay) {
+		ricky.src += "&autoplay=1&muted=0";
+	}
+		 ricky.muted = false;
+		 
 </script>
 </div>
   <footer>
