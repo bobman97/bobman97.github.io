@@ -1,71 +1,66 @@
-/* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
-*/
+/* Stor skärm */
 
 @media (min-width: 1281px) {
   
   /* CSS */
-  
+	section { /* När skärmen är hyfsat stor */
+		width:70%; 
+	}
 }
 
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
+
+/*
+	smartphones & tablets
 */
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  
+@media (min-width: 320px) and (max-width: 1024px) {
   /* CSS */
-  
-}
-
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) {
+  	header {
+		display:none;
+	}
+	.hide {
+		opacity:1;
+	}
+	section {
+		width:calc(100% - 4em);
+		padding-left:1em;
+		padding-right:1em;
+	}
+	
+	article, .takeOff{
+		line-height:2em;
+		font-size:2em;
+	}
+		
+	.checklist li {
+		list-style-image:none; /* Fick Inte Plats */
+	}
+	
+	.wrap:nth-of-type(2) {
+		background-size:contain;
+	}
 	#rickroll {
 		display:none;
 	}
-  /* CSS */
-  
 }
 
 /* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
- 
-  /* CSS */
-  
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
+   mobiltelefoner
 */
 
 @media (min-width: 320px) and (max-width: 767px) {
   
   /* CSS */
-  
-
-	header {
-		display:none;
-	}
 	
 	h1 {
 		font-size:1em;
 	}
-	.lander p {
-		font-size:1em;
+	.lander p, h3 {
+		font-size:1.5em;
 	}
-	.hide {
-		opacity:1;
+	.credits a {
+		display:block;
+		text-indent:2em;
 	}
 	section {
 		width:calc(100% - 2em);
@@ -73,16 +68,11 @@
 		padding-right:0.5em;
 	}
 	
-	article p {
-		line-height:1.5em;
+	article, .takeOff {
+		font-size:1em;
 	}
-	
-	article:hover p {
-		font-weight:500;
+
+	#artikel3 { /* Ändrar plats på sista artikeln enligt uppgiftens krav */
+		order:2;
 	}
-	
-	.wrap:nth-of-type(2) {
-		background-size:contain;
-	}
-	
 }

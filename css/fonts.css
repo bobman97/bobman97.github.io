@@ -38,7 +38,7 @@ h1 {
 h3 {
  font-family: 'Roboto', sans-serif;
  text-align:center;
- font-size:1.5em;
+ font-size:2em;
 }
 
 h4 {
@@ -46,22 +46,24 @@ h4 {
 	margin:0.5em auto;
 }
 
-article p, .checklist li, .credits {
+article p, .checklist > li, .credits {
  font-family: "Open Sans",sans-serif; /* Fonten är lik H2 och H1 men också skön att läsa många rader av. */
  margin:1em auto;
  transition-duration:0.2s;
+ font-size:1.2em;
 }
 /* För att underlätta läsningen så antar jag att om man placerar musen på texten har man svårt att följa flödet i texten och då blir den fetare. Med JS hade jag lagt en click funktion som låste effekten. */
-article:hover p { 
- font-weight:bold; /* med text-shadow hade jag kunnat animera effekten men det skapade problem med länkar */
+article:hover p {  /* Jag ångrade mig */
+ /*font-weight:bold; /* med text-shadow hade jag kunnat animera effekten men det skapade problem med länkar */
 }
 
 article p:first-of-type { /* Första paragrafen i varje stycke trycks in lite */
- text-indent:25px;
+ text-indent:2em;
 }
 
 article a:hover { /* Tar bort feta hover effekten som vi la på ovanför. */
  font-weight:500;
+	text-decoration: underline;
 }
 
 .credits {
@@ -69,5 +71,14 @@ article a:hover { /* Tar bort feta hover effekten som vi la på ovanför. */
 }
 
 .takeOff a:hover {
+	text-decoration: underline;
+}
+
+footer {
+	line-height:2em;
+	text-align:center;
+}
+
+footer a:hover {
 	text-decoration: underline;
 }
