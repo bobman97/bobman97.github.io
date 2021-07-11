@@ -114,9 +114,9 @@ input[type=checkbox]:checked ~ p {
 	list-style:none;
 }
 
-.checklist li:not(li li):not(.nested)::after {
+/*.checklist > li:not(.nested)::after {
 	content: ' \2713';
-}
+}*/
 
 .checklist li li, .credits li li {
 	list-style:none;

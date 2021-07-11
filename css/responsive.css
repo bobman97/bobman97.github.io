@@ -3,7 +3,7 @@
 @media (min-width: 1281px) {
   
   /* CSS */
-	section { /* När skärmen är hyfsat stor */
+	section { /* När skärmen är hyfsat stor blir texten mer utspridd */
 		width:70%; 
 	}
 }
