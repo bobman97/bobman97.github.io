@@ -4,7 +4,6 @@ header {
 a, a:visited { /* Universal färg för länkar */
  color:#009E4C;
 }
-}
 .logo a, .logo a:visited {
  color:#0E9E54;
 }
@@ -54,7 +53,7 @@ section {
  border-right:0;
  border-bottom:0;
 }
-.checklist li:not(li li) {
+.checklist > li {
 	/*background:no-repeat left center url('macarons_list_edit.png');*/
 }
 .checklist {
