@@ -1,176 +1,172 @@
 <!DOCTYPE html>
 <html lang="sv">
- <head>
-  <!-- META -->
-  <meta charset="utf-8">
-  <meta name="description" content="Examination">
-  <meta name="author" content="William Hilmersson">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <!-- IMPORT CSS -->
-  <link rel="stylesheet" href="css/main.css"> <!-- Strukturen på hemsidan -->
-  <link rel="stylesheet" href="css/fonts.css"> <!-- Inställningar på all text -->
-  <link rel="stylesheet" href="css/colors.css"> <!-- Val av färger på alla element -->
-  <link rel="stylesheet" href="css/responsive.css"> <!-- Mobil/Tablet/Laptop vänlighet sist för att skriva över ovan -->
-  <!-- SYNLIGA DETALJER -->
-  <title>William Hilmersson</title>
-  
- </head>
- <body id="top">
-  <header>
-   <div class="logo">
-    <a href="index.html">Examination</a>
-   </div>
-   <nav>
-    <ul class="menu">
-     <li><a href="#sida1" data-target="#sida1">Start</a></li>
-     <li><a href="#sida2">Processanalys</a></li>
-     <li><a href="#sida3">Referenser</a></li>
-    </ul>
-   </nav>
-  </header>
-  <div class="wrap" id="sida1">
-   <div class="lander">
-    <h1>Välkommen till min examinationsuppgift!</h1>
-    <a href="#sida2" draggable="false" tabindex="-1"><p><span class="hide">&#8627;</span>Utforska hemsidan<span class="hide">&#8626;</span></p></a> <!-- HTML5 tillåter inline element utanför block element. Tabindex för att gömma länken när man tabbar(Fyller ingen funktion att ha den där) -->
-   </div>
-  </div>
-  <div class="wrap" id="sida2">
-   <section id="artikel1">
-    <article>
-     <h3>Mina tankar kring strukturen</h3>
-     <p>Mitt mål var att skapa en hemsida som är enkel att nagivera då vi människor är lata och inte vill läsa en massa text utan att något händer. Första intrycket är en stor och välkomnande landbana som inte innehåller för mycket information. Här valde jag en bakgrundsbild som är trevlig för ögonen med färger som passar bra ihop på startsidan: sidhuvud med vit bakgrund och grön text som gräset och skogen, när man skrollar ned så lägger sig den vita texten snyggt på skogens gröna bakgrund eftersom bakgrunden är fastlimmad på plats(lite som att åka hiss). Jag hade planerat att använda samma font för alla rubriker men så såg jag en <a href="https://css-tricks.com/design-considerations-text-images/#full-page-images" target="_blank">artikel</a> när jag letade efter metoder att göra fotobakgrunden mörkare och bestämde mig för att sno fonten också. Alla bilder och fonter är godkända för kommersiellt syfte och hämtade från <a href="https://fonts.google.com/" target="_blank">google.com</a>, <a href="https://pixabay.com" target="_blank">pixabay.com</a> och <a href="https://www.flaticon.com/" target="_blank">flaticon.com</a>.</p>
-
-     <p>Sidan följer HTML5 standard med en header för sidhuvudet, där i har jag placerat min "hemknapp" eller logga och en navigeringbar. För att få elementen på plats använde jag flexbox som gör att strukturen på hemsidan är lätt att styra utan att oroa sig för spaghetti-kod. Länkarna är uppbyggda i en lista för att ge stöd åt skärmläsare och för att skapa struktur. Alla länkar är designade för att följa färgschemat och ge kontrast mot den tjocka texten i landbanan. Istället för att länka till flera olika html sidor så la jag huvudinnehållet under index men gjorde hemsidan i flera olika 'lager' och med hjälp av smooth scrolling och ankare är det möjligt utan Javascript, fast hade javascript varit tillåtet hade jag använt det utöver.</p>
-
-     <p>Den här sidan du läser nu är tänkt att skapa kontrast till ladning page. Du märker att när du skrollar så repeterar bakgrunden istället för att vara fastlimmad. Jag har försökt minimera distraktionerna genom att skapa flera sektioner i kolumner med olika innehåll istället för att lägga dem sida vid sida där läsaren behöver leta sig fram i strukturen. Motivet på den här sidan var <em>skolbänk</em>, lekfull bakgrund med vita sektioner som ska likna A4-papper och en font som påminner lite om en skrivmaskin. Skuggan hjälper till att skapa attraktiva detaljer. Även den här sidan är strukturerad med Flexbox fast i vertikal struktur istället för horisontell.</p>
-
-     <p>För att underlätta för mig själv så gjorde jag hemsidan användarvänlig från början genom att arbeta med procent och em. Jag undvek helt och hållet bestämda enheter så som px, pt för att göra så lite ändringar som möjligt i den mobilvänliga layouten.</p>
-    </article>
-	   <div class="share">
-		   <input type="checkbox" id="share1">
-		   <label for="share1">&#x293A;</label>
-		   <p>index.html#artikel1</p>
-	   </div>
-   </section>
-   <section id="artikel2">
-    <article>
-     <h3>Problem på vägen</h3>
-     <p>Kursen läser jag för att få en refresher i korrekt webbdesign. Därför stötte jag på en hel del fel jag gjort förr i tiden och som inte längre är godkända metoder. Ett exempel är att jag alltid har arbetat med relative, absolute och inline-block när jag skapat min design men nu behövde jag lära mig att jobba med elementens standardinställningar.</p>
-
-     <p>Flexbox var till stor hjälp för att få struktur på hemsidan och faktiskt inte så krångligt när man väl börjat lära sig men ett problem jag stötte på med flexbox var att det inte gick att ändra bredden på sektionen utan att använda width, så om ni vet en bättre lösning tar jag gärna emot den, testade med flex-basis men det funkade inte med '%' då. Det kanske är korrekt att använda width ändå? <a href="https://stackoverflow.com/questions/36342921/specifing-width-of-a-flexbox-flex-item-width-or-basis" target="_blank">Referens.</a></p>
-
-     <p>Några större problem hade jag inte eftersom jag alltid har jobbat i HTML5 och därför lärt mig det mesta från grunden, hur man jobbar med em, procent och gör hemsidan användarvänglig och responsiv. Jag skrev hemsidan i anteckningar så det blev problem med strukturen men det fixade jag genom att importera filerna till dreamweaver på datorn hemma. Så mottar gärna så mycket feedback som möjligt om ni upptäcker något jag gjort tokigt.</p>
-    </article>
-	   <div class="share">
-		   <input type="checkbox" id="share2">
-		   <label for="share2">&#x293A;</label>
-		   <p>index.html#artikel2</p>
-	   </div>
-   </section>
-   <section id="artikel3">
-    <article>
-     <h3>Filstruktur och källkod</h3>
-     <p>Index.html och Bonus.html ligger i root mappen, sedan har jag planerat upplägget med en mapp för bilder, en för css kodning och hade även använt en till mapp för javascript om det var tillåtet. Stylingen på hemsidan är uppdelad i fyra olika filer, main.css, fonts.css, color.css och responsive.css &mdash; main innehåller uppbygnaden av alla element, fonts all styling på text(pesudo-klasser ingår även här) men inte färger, dem ligger i colors.css och motivationen till det är när stylingen blir väldigt stor så får man leta länge om man bara vill ändra något litet(Detta lärde jag mig när jag testade på <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. Enda anledningen att det användes för det här projektet var struktur och för att skapa en rutin, jag valde att inte döpa om bilderna ifall att ni ville kolla upp om de verkligen var tillåtna att använda.</p>
-
-     <p>I källkoden kommer ni hitta diverse kommentarer som förklarar varför jag gjort vissa val och även där jag suddat ut koden utan att radera den, då ser ni att jag testat olika lösningar också.</p>
-    </article>
-	   <div class="share">
-	   	<input type="checkbox" id="share3">
-	   	<label for="share3">&#x293A;</label>
-	   	<p>index.html#artikel3</p>
-	   </div>
-   </section>
-   <section id="artikel4"> <!-- Notera att :hover effekten inte fungerar här därför att texten inte är viktigt innehåll. -->
-    <article>
-    	<h3><img src="img/macarons%20-%201084049.png" title="Macarons">Checklista &check;</h3> <!-- Godkänt se https://stackoverflow.com/questions/1605454/can-we-place-img-inside-h1-according-to-web-standards -->
-    	<ul class="checklist"> <!-- Nedanför kunde jag inte lägga en "&check;" på ::after då jag har nestade listor -->
-			<li class="nested">Webbplatsen skall bestå av minst två HTML-filer som är ihoplänkade via en meny, och en primär CSS-fil som styr allt utseende. &check;
-				<ul>
-					<li>Se sida: Bonus i fotnot.</li>
-				</ul>
-			</li>
-
-			<li>En av HTML-sidorna skall innehålla rapporten med din processanalys och de andra kan innehålla vad du vill. Rapporten skall alltså vara text som är en del av webbplatsen, ej länk till något externt dokument. &check;</li>
-
-			<li>Sidorna skall vara responsiva. Du skall använda “media queries” för att få sidan anpassad för minst två upplösningar. &check;</li>
-
-			<li>Bilden på mobilsidan, i den tilldelade mockupen, kan tolkas på två sätt – dels att enbart mittenkolumnen från desktopsidan visas, alternativt att alla tre visas i en kolumn, med mittenkolumnen först. Den första varianten är mycket lättare än den andra. Pluspoäng för den som löser variant två, eller ger ett bra resonemang kring hur man kan tänka kring lösning av den. &check;</li>
-
-			<li>Någonstans på sidorna skall du använda något typsnitt från Google fonts eller liknande tjänster, exempelvis på rubriker eller brödtexten. &check;</li>
-
-			<li class="nested">Innehållsdelens höjd skall anpassas automatiskt efter mängden innehåll på sidan, det vill säga att ni inte skall koda in fasta höjder på innehållscontainers. &check;
-				<ul>
-					<li>Se sida: Processanalys i sidhuvud.</li>
-				</ul>
-			</li>
-
-			<li>Sidornas titel skall vara ditt namn. &check;</li>
-
-			<li>Sidornas skall validera som minst xhtml 1.0 transitional. Pluspoäng för xhtml strict-validering eller korrekt använd HTML5. &check;</li>
-
-			<li>Sidornas struktur skall vara uppbyggd av div-taggar, ej tabeller. &check;</li>
-
-			<li>Vid utskrift av sidan skall stora bildelement på sidan döljas. Däremot skall inte alla bilder döljas. Även andra element som är irrelevanta att ha kvar vid utskrift, som till exempel en meny, skall döljas. &check;</li>
-
-			<li>Koden skall vara kommenterad, dvs ni förklarar med egna ord vad som händer på olika ställen i koden. Dessa kommentarer används i bedömningen av er uppgift, så beskriv på ett bra men kortfattat sätt hur ni tänkt er koden. Detta gäller html såväl som css. &check;</li>
-
-			<li>Startsidan skall heta “index.html” &check;</li>
-
-			<li>Koden skall över lag vara av god kvalitet och följa modern standard. &check;</li>
-		</ul>
-    </article>
-	   <div class="share">
-		   <input type="checkbox" id="share4">
-		   <label for="share4">&#x293A;</label>
-		   <p>index.html#artikel4</p>
-	   </div>
-   </section>
-  </div>
-  <div class="wrap" id="sida3">
-	<div class="takeOff">
-		<h3>Källor, referenser och hjälpmedel</h3>
-		<ul class="credits">
-			<li><h4>Bilder</h4>
-				<ul>
-					<li>boy-6158164.jpg - <a href="https://pixabay.com/photos/boy-child-lake-bank-field-river-6158164/" target="_blank">jatocreate</a></li>
-					<li>macaron-1084049.jpg - <a href="https://pixabay.com/illustrations/macaron-macaroon-stylized-macaron-1084049/" target="_blank">Viscious-Speed</a></li>
-					<li><s>field-192179.jpg</s> - <a href="https://pixabay.com/photos/field-cereals-summer-sun-sunshine-192179/" target="_blank">realworkhard</a></li>
-					<li>atacama-desert-594605 - <a href="https://pixabay.com/photos/atacama-desert-chile-flamingos-594605/" target="_blank">TravelCoffeeBook</a></li>
-					<li>macarons - 1084049.png - <a href="https://www.flaticon.com/free-icon/macarons_1075861?term=macarons&page=1&position=2&page=1&position=2&related_id=1075861&origin=tag" target="_blank">Freepik</a></li>
-					<li>bookmark.png - <a href="https://www.flaticon.com/free-icon/bookmark_149264" target="_blank">Smashicons</a></li>
-				</ul>
-			</li>
-			<li><h4>Fonter</h4>
-				<ul>
-					<li>Source Sans Pro - <a href="https://fonts.google.com/specimen/Source+Sans+Pro" target="_blank">Paul D. Hunt</a></li>
-					<li>Roboto - <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Christian Robertson</a></li>
-					<li>Open Sans - <a href="https://fonts.google.com/specimen/Open+Sans" target="_blank">Steve Matteson</a></li>
-				</ul>
-			</li>
-			<li><h4>Guider</h4>
-				<ul>
-					<li>A complete guide to Flexbox - <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Chris Coyier</a></li>
-					<li>Design Considerations: Text on Images - <a href="https://css-tricks.com/design-considerations-text-images" target="_blank">Chris Coyier</a></li>
-					<li><a href="" target="_blank">Startsida</a></li>
-				</ul>
-			</li>
-			<li><h4>Kodning</h4>
-				<ul>
-					<li>Advanced Checkbox Hack - <a href="https://codepen.io/TimPietrusky/pen/fHmiI" target="_blank">Tim Pietrusky</a></li>
-					<li>Full Page Images - <a href="https://css-tricks.com/design-considerations-text-images/#full-page-images">Chris Coyier</a></li>
-					
-					<li><s>Adjust list style image position</s> - <a href="https://stackoverflow.com/a/1709271" target="_blank">a darren</a></li>
-					<li>CSS Media Queries for Desktop, Tablet, Mobile - <a href="https://gist.github.com/gokulkrishh/242e68d1ee94ad05f488" target="_blank">gokulkrishh</a></li>
-					<li>Chrome Device Mode Emulation Media Queries Not Working - <a href="https://stackoverflow.com/questions/26888751/chrome-device-mode-emulation-media-queries-not-working" target="_blank">BananaNeil</a></li>
-				</ul>
-			</li>
-		</ul>
-	  </div>
-  </div>
-  <footer>
-  	 <div class="footerDiv"><a href="#sida1">Ta mig till toppen</a></div>
-	 <div class="footerDiv"><a href="bonus.html">Bonussidan</a></div>
-   <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> & <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-  </footer>
- </body>
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="description" content="Examination">
+        <meta name="author" content="William Hilmersson">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <!-- IMPORT CSS -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Strukturen på hemsidan -->
+        <link rel="stylesheet" href="css/fonts.css">
+        <!-- Inställningar på all text -->
+        <link rel="stylesheet" href="css/colors.css">
+        <!-- Val av färger på alla element -->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- Mobil/Tablet/Laptop vänlighet sist för att skriva över ovan -->
+        <!-- SYNLIGA DETALJER -->
+        <title>William Hilmersson</title>
+    </head>
+    <body id="top">
+        <header>
+            <div class="logo">
+                <a href="index.html">Examination</a>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#sida1" data-target="#sida1">Start</a></li>
+                    <li><a href="#sida2">Processanalys</a></li>
+                    <li><a href="#sida3">Referenser</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="wrap" id="sida1">
+            <div class="lander">
+                <h1>Välkommen till min examinationsuppgift!</h1>
+                <a href="#sida2" draggable="false" tabindex="-1">
+                    <p><span class="hide">&#8627;</span>Utforska hemsidan<span class="hide">&#8626;</span></p>
+                </a>
+                <!-- HTML5 tillåter inline element utanför block element. Tabindex för att gömma länken när man tabbar(Fyller ingen funktion att ha den där) -->
+            </div>
+        </div>
+        <div class="wrap" id="sida2">
+            <section id="artikel1">
+                <article>
+                    <h3>Mina tankar kring strukturen</h3>
+                    <p>Mitt mål var att skapa en hemsida som är enkel att nagivera då vi människor är lata och inte vill läsa en massa text utan att något händer. Första intrycket är en stor och välkomnande landbana som inte innehåller för mycket information. Här valde jag en bakgrundsbild som är trevlig för ögonen med färger som passar bra ihop på startsidan: sidhuvud med vit bakgrund och grön text som gräset och skogen, när man skrollar ned så lägger sig den vita texten snyggt på skogens gröna bakgrund eftersom bakgrunden är fastlimmad på plats(lite som att åka hiss). Jag hade planerat att använda samma font för alla rubriker men så såg jag en <a href="https://css-tricks.com/design-considerations-text-images/#full-page-images" target="_blank">artikel</a> när jag letade efter metoder att göra fotobakgrunden mörkare och bestämde mig för att sno fonten också. Alla bilder och fonter är godkända för kommersiellt syfte och hämtade från <a href="https://fonts.google.com/" target="_blank">google.com</a>, <a href="https://pixabay.com" target="_blank">pixabay.com</a> och <a href="https://www.flaticon.com/" target="_blank">flaticon.com</a>.</p>
+                    <p>Sidan följer HTML5 standard med en header för sidhuvudet, där i har jag placerat min "hemknapp" eller logga och en navigeringbar. För att få elementen på plats använde jag flexbox som gör att strukturen på hemsidan är lätt att styra utan att oroa sig för spaghetti-kod. Länkarna är uppbyggda i en lista för att ge stöd åt skärmläsare och för att skapa struktur. Alla länkar är designade för att följa färgschemat och ge kontrast mot den tjocka texten i landbanan. Istället för att länka till flera olika html sidor så la jag huvudinnehållet under index men gjorde hemsidan i flera olika 'lager' och med hjälp av smooth scrolling och ankare är det möjligt utan Javascript, fast hade javascript varit tillåtet hade jag använt det utöver.</p>
+                    <p>Den här sidan du läser nu är tänkt att skapa kontrast till ladning page. Du märker att när du skrollar så repeterar bakgrunden istället för att vara fastlimmad. Jag har försökt minimera distraktionerna genom att skapa flera sektioner i kolumner med olika innehåll istället för att lägga dem sida vid sida där läsaren behöver leta sig fram i strukturen. Motivet på den här sidan var <em>skolbänk</em>, lekfull bakgrund med vita sektioner som ska likna A4-papper och en font som påminner lite om en skrivmaskin. Skuggan hjälper till att skapa attraktiva detaljer. Även den här sidan är strukturerad med Flexbox fast i vertikal struktur istället för horisontell.</p>
+                    <p>För att underlätta för mig själv så gjorde jag hemsidan användarvänlig från början genom att arbeta med procent och em. Jag undvek helt och hållet bestämda enheter så som px, pt för att göra så lite ändringar som möjligt i den mobilvänliga layouten.</p>
+                </article>
+                <div class="share">
+                    <input type="checkbox" id="share1">
+                    <label for="share1">&#x293A;</label>
+                    <p>index.html#artikel1</p>
+                </div>
+            </section>
+            <section id="artikel2">
+                <article>
+                    <h3>Problem på vägen</h3>
+                    <p>Kursen läser jag för att få en refresher i korrekt webbdesign. Därför stötte jag på en hel del fel jag gjort förr i tiden och som inte längre är godkända metoder. Ett exempel är att jag alltid har arbetat med relative, absolute och inline-block när jag skapat min design men nu behövde jag lära mig att jobba med elementens standardinställningar.</p>
+                    <p>Flexbox var till stor hjälp för att få struktur på hemsidan och faktiskt inte så krångligt när man väl börjat lära sig men ett problem jag stötte på med flexbox var att det inte gick att ändra bredden på sektionen utan att använda width, så om ni vet en bättre lösning tar jag gärna emot den, testade med flex-basis men det funkade inte med '%' då. Det kanske är korrekt att använda width ändå? <a href="https://stackoverflow.com/questions/36342921/specifing-width-of-a-flexbox-flex-item-width-or-basis" target="_blank">Referens.</a></p>
+                    <p>Några större problem hade jag inte eftersom jag alltid har jobbat i HTML5 och därför lärt mig det mesta från grunden, hur man jobbar med em, procent och gör hemsidan användarvänglig och responsiv. Jag skrev hemsidan i anteckningar så det blev problem med strukturen men det fixade jag genom att importera filerna till dreamweaver på datorn hemma. Så mottar gärna så mycket feedback som möjligt om ni upptäcker något jag gjort tokigt.</p>
+                </article>
+                <div class="share">
+                    <input type="checkbox" id="share2">
+                    <label for="share2">&#x293A;</label>
+                    <p>index.html#artikel2</p>
+                </div>
+            </section>
+            <section id="artikel3">
+                <article>
+                    <h3>Filstruktur och källkod</h3>
+                    <p>Index.html och Bonus.html ligger i root mappen, sedan har jag planerat upplägget med en mapp för bilder, en för css kodning och hade även använt en till mapp för javascript om det var tillåtet. Stylingen på hemsidan är uppdelad i fyra olika filer, main.css, fonts.css, color.css och responsive.css &mdash; main innehåller uppbygnaden av alla element, fonts all styling på text(pesudo-klasser ingår även här) men inte färger, dem ligger i colors.css och motivationen till det är när stylingen blir väldigt stor så får man leta länge om man bara vill ändra något litet(Detta lärde jag mig när jag testade på <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. Enda anledningen att det användes för det här projektet var struktur och för att skapa en rutin, jag valde att inte döpa om bilderna ifall att ni ville kolla upp om de verkligen var tillåtna att använda.</p>
+                    <p>I källkoden kommer ni hitta diverse kommentarer som förklarar varför jag gjort vissa val och även där jag suddat ut koden utan att radera den, då ser ni att jag testat olika lösningar också.</p>
+                </article>
+                <div class="share">
+                    <input type="checkbox" id="share3">
+                    <label for="share3">&#x293A;</label>
+                    <p>index.html#artikel3</p>
+                </div>
+            </section>
+            <section id="artikel4">
+                <!-- Notera att :hover effekten inte fungerar här därför att texten inte är viktigt innehåll. -->
+                <article>
+                    <h3><img src="img/macarons%20-%201084049.png" alt="Biskvi" title="Macarons">Checklista &check;</h3>
+                    <!-- Godkänt se https://stackoverflow.com/questions/1605454/can-we-place-img-inside-h1-according-to-web-standards -->
+                    <ul class="checklist">
+                        <!-- Nedanför kunde jag inte lägga en "&check;" på ::after då jag har nestade listor -->
+                        <li class="nested">
+                            Webbplatsen skall bestå av minst två HTML-filer som är ihoplänkade via en meny, och en primär CSS-fil som styr allt utseende. &check;
+                            <ul>
+                                <li>Se sida: Bonus i fotnot.</li>
+                            </ul>
+                        </li>
+                        <li>En av HTML-sidorna skall innehålla rapporten med din processanalys och de andra kan innehålla vad du vill. Rapporten skall alltså vara text som är en del av webbplatsen, ej länk till något externt dokument. &check;</li>
+                        <li>Sidorna skall vara responsiva. Du skall använda “media queries” för att få sidan anpassad för minst två upplösningar. &check;</li>
+                        <li>Bilden på mobilsidan, i den tilldelade mockupen, kan tolkas på två sätt – dels att enbart mittenkolumnen från desktopsidan visas, alternativt att alla tre visas i en kolumn, med mittenkolumnen först. Den första varianten är mycket lättare än den andra. Pluspoäng för den som löser variant två, eller ger ett bra resonemang kring hur man kan tänka kring lösning av den. &check;</li>
+                        <li>Någonstans på sidorna skall du använda något typsnitt från Google fonts eller liknande tjänster, exempelvis på rubriker eller brödtexten. &check;</li>
+                        <li class="nested">
+                            Innehållsdelens höjd skall anpassas automatiskt efter mängden innehåll på sidan, det vill säga att ni inte skall koda in fasta höjder på innehållscontainers. &check;
+                            <ul>
+                                <li>Se sida: Processanalys i sidhuvud.</li>
+                            </ul>
+                        </li>
+                        <li>Sidornas titel skall vara ditt namn. &check;</li>
+                        <li>Sidornas skall validera som minst xhtml 1.0 transitional. Pluspoäng för xhtml strict-validering eller korrekt använd HTML5. &check;</li>
+                        <li>Sidornas struktur skall vara uppbyggd av div-taggar, ej tabeller. &check;</li>
+                        <li>Vid utskrift av sidan skall stora bildelement på sidan döljas. Däremot skall inte alla bilder döljas. Även andra element som är irrelevanta att ha kvar vid utskrift, som till exempel en meny, skall döljas. &check;</li>
+                        <li>Koden skall vara kommenterad, dvs ni förklarar med egna ord vad som händer på olika ställen i koden. Dessa kommentarer används i bedömningen av er uppgift, så beskriv på ett bra men kortfattat sätt hur ni tänkt er koden. Detta gäller html såväl som css. &check;</li>
+                        <li>Startsidan skall heta “index.html” &check;</li>
+                        <li>Koden skall över lag vara av god kvalitet och följa modern standard. &check;</li>
+                    </ul>
+                </article>
+                <div class="share">
+                    <input type="checkbox" id="share4">
+                    <label for="share4">&#x293A;</label>
+                    <p>index.html#artikel4</p>
+                </div>
+            </section>
+        </div>
+        <div class="wrap" id="sida3">
+            <div class="takeOff">
+                <h3>Källor, referenser och hjälpmedel</h3>
+                <ul class="credits">
+                    <li>
+                        <h4>Bilder</h4>
+                        <ul>
+                            <li>boy-6158164.jpg - <a href="https://pixabay.com/photos/boy-child-lake-bank-field-river-6158164/" target="_blank">jatocreate</a></li>
+                            <li>macaron-1084049.jpg - <a href="https://pixabay.com/illustrations/macaron-macaroon-stylized-macaron-1084049/" target="_blank">Viscious-Speed</a></li>
+                            <li><s>field-192179.jpg</s> - <a href="https://pixabay.com/photos/field-cereals-summer-sun-sunshine-192179/" target="_blank">realworkhard</a></li>
+                            <li>atacama-desert-594605 - <a href="https://pixabay.com/photos/atacama-desert-chile-flamingos-594605/" target="_blank">TravelCoffeeBook</a></li>
+                            <li>macarons - 1084049.png - <a href="https://www.flaticon.com/free-icon/macarons_1075861?term=macarons&page=1&position=2&page=1&position=2&related_id=1075861&origin=tag" target="_blank">Freepik</a></li>
+                            <li>bookmark.png - <a href="https://www.flaticon.com/free-icon/bookmark_149264" target="_blank">Smashicons</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Fonter</h4>
+                        <ul>
+                            <li>Source Sans Pro - <a href="https://fonts.google.com/specimen/Source+Sans+Pro" target="_blank">Paul D. Hunt</a></li>
+                            <li>Roboto - <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Christian Robertson</a></li>
+                            <li>Open Sans - <a href="https://fonts.google.com/specimen/Open+Sans" target="_blank">Steve Matteson</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Guider</h4>
+                        <ul>
+                            <li>A complete guide to Flexbox - <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Chris Coyier</a></li>
+                            <li>Design Considerations: Text on Images - <a href="https://css-tricks.com/design-considerations-text-images" target="_blank">Chris Coyier</a></li>
+                            <li><a href="" target="_blank">Startsida</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Kodning</h4>
+                        <ul>
+                            <li>Advanced Checkbox Hack - <a href="https://codepen.io/TimPietrusky/pen/fHmiI" target="_blank">Tim Pietrusky</a></li>
+                            <li>Full Page Images - <a href="https://css-tricks.com/design-considerations-text-images/#full-page-images">Chris Coyier</a></li>
+                            <li><s>Adjust list style image position</s> - <a href="https://stackoverflow.com/a/1709271" target="_blank">a darren</a></li>
+                            <li>CSS Media Queries for Desktop, Tablet, Mobile - <a href="https://gist.github.com/gokulkrishh/242e68d1ee94ad05f488" target="_blank">gokulkrishh</a></li>
+                            <li>Chrome Device Mode Emulation Media Queries Not Working - <a href="https://stackoverflow.com/questions/26888751/chrome-device-mode-emulation-media-queries-not-working" target="_blank">BananaNeil</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <div class="footerDiv"><a href="#sida1">Ta mig till toppen</a></div>
+            <div class="footerDiv"><a href="bonus.html">Bonussidan</a></div>
+            <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> & <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </footer>
+    </body>
 </html>
