@@ -1,47 +1,66 @@
 /* Stor skärm */
 
-@media (min-width: 1281px) {
-  
-  /* CSS */
-	section { /* När skärmen är hyfsat stor blir texten mer utspridd */
-		width:70%; 
-	}
-}
-
-
 /*
 	smartphones & tablets
 */
 
-@media (min-width: 320px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
-  	header {
+  	.desktopmenu {
 		display:none;
 	}
-	.hide {
-		opacity:1;
+	
+	.slogan {
+		justify-content: space-evenly;
 	}
-	section {
-		width:calc(100% - 4em);
-		padding-left:1em;
-		padding-right:1em;
+	
+	.menuMobile {
+		display:block;
+	}
+	
+	h1 {
+		font-size:2.2em;
+		letter-spacing: normal;
+		text-align: center;
+	}
+	
+	.wrap {
+		flex-wrap:wrap;
+		
+		align-items: center;
+	}
+
+	.wrap section {
+		flex-basis:80%;
+		order:2;
+	}
+	
+	.wrap section:nth-of-type(4) {
+		flex-basis: 80%;
+		align-self: flex-start;
+		order:1;
+	}
+	
+	.wrap section:nth-of-type(2) {
+		order:0;
+	}
+	
+	.wrap section:not(:nth-of-type(2)){
+		margin-top:20%;
 	}
 	
 	article, .takeOff{
-		line-height:2em;
 		font-size:2em;
 	}
-		
-	.checklist li {
-		list-style-image:none; /* Fick Inte Plats */
+	
+	.circleHidden {
+		display: block;
 	}
 	
-	.wrap:nth-of-type(2) {
-		background-size:contain;
+	.checklist li {
+		list-style-image:none; /* Bilden blev för liten */
 	}
-	#rickroll {
-		display:none;
-	}
+
 }
 
 /* 
@@ -51,29 +70,52 @@
 @media (min-width: 320px) and (max-width: 767px) {
   
   /* CSS */
+	.desktopmenu {
+		display:none;
+	}
 	
-	h1 {
-		font-size:1em;
+	.slogan {
+		justify-content: space-evenly;
 	}
-	.lander p, h3 {
-		font-size:1.5em;
-	}
-	.credits a {
+	
+	.menuMobile {
 		display:block;
-		text-indent:2em;
-	}
-	section {
-		width:calc(100% - 2em);
-		padding-left:0.5em;
-		padding-right:0.5em;
-	}
-	
-	article, .takeOff {
-		font-size:1em;
 	}
 
-	#artikel3 { /* Ändrar plats på sista artikeln enligt uppgiftens krav */
+	h1 {
+		font-size:1.5em;
+		letter-spacing: normal;
+		text-align: center;
+	}
+	
+	.wrap {
+		flex-wrap:wrap;
+		
+		align-items: center;
+	}
+
+	.wrap section {
+		flex-basis:100%;
 		order:2;
 	}
+	
+	.wrap section:nth-of-type(4) {
+		flex-basis: 100%;
+		align-self: flex-start;
+		order:1;
+	}
+	
+	.wrap section:nth-of-type(2) {
+		order:0;
+	}
+	
+	.wrap section:not(:nth-of-type(2)){
+		margin-top:20%;
+	}
+	
+	.circleHidden {
+		display: block;
+	}
+
 }
 

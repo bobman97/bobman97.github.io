@@ -1,41 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap'); /* Landing page */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); /* Rubriker / Sidhuvud */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); /* Rubriker */ /* Länkar */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); /* Brödtext */
 
 a, a:visited {
  text-decoration:none;
  font-family: 'Roboto', sans-serif;
+ font-weight:bold;
 }
+
+#mmClick {
+	font-weight:bold;
+}
+
 .logo a, .logo a:visited {
  font-size: 2em;
  user-select: none;
 }
 
-.menu li a, .menu li a:visited {
+.headerbox li a {
  font-size:1.5em;
+ font-weight:bold;
 }
 
 h1 {
- text-align:center;
+ text-align:right;
  font-family: 'Source Sans Pro', sans-serif;
- font-size:3em;
- text-transform:uppercase;
- white-space:nowrap;
- border-bottom:2px solid #FFF;
+ font-size:1.2em;
+ font-weight: normal;
 }
 
-.lander p {
- font-family: 'Source Sans Pro', sans-serif;
- font-size:2em; 
- text-align:center;
- line-height:2em;
-}
-
-.lander a:hover {
- cursor:default;
-}
-
-h3 {
+h3, h2 {
  font-family: 'Roboto', sans-serif;
  text-align:center;
  font-size:2em;
@@ -52,25 +46,16 @@ article p, .checklist > li, .credits {
  transition-duration:0.2s;
  font-size:1.2em;
 }
-/* För att underlätta läsningen så antar jag att om man placerar musen på texten har man svårt att följa flödet i texten och då blir den fetare. Med JS hade jag lagt en click funktion som låste effekten. */
-article:hover p {  /* Jag ångrade mig */
- /*font-weight:bold; /* med text-shadow hade jag kunnat animera effekten men det skapade problem med länkar */
-}
 
 article p:first-of-type { /* Första paragrafen i varje stycke trycks in lite */
  text-indent:2em;
-}
-
-article a:hover { /* Tar bort feta hover effekten som vi la på ovanför. */
- font-weight:500;
-	text-decoration: underline;
 }
 
 .credits {
 	font-size:1.5em;
 }
 
-.takeOff a:hover {
+.takeOff a:hover, footer a:hover, article a:hover {
 	text-decoration: underline;
 }
 
@@ -79,6 +64,6 @@ footer {
 	text-align:center;
 }
 
-footer a:hover {
-	text-decoration: underline;
+.footerDiv a {
+	text-align: center;
 }
