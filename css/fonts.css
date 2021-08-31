@@ -27,9 +27,10 @@ h1 {
  font-family: 'Source Sans Pro', sans-serif;
  font-size:1.2em;
  font-weight: normal;
+ letter-spacing:0.2em;
 }
 
-h3, h2 {
+h3, .logoMobile a {
  font-family: 'Roboto', sans-serif;
  text-align:center;
  font-size:2em;
@@ -47,7 +48,7 @@ article p, .checklist > li, .credits {
  font-size:1.2em;
 }
 
-article p:first-of-type { /* Första paragrafen i varje stycke trycks in lite */
+article > p:first-of-type { /* Första paragrafen i varje stycke trycks in lite */
  text-indent:2em;
 }
 
@@ -66,4 +67,8 @@ footer {
 
 .footerDiv a {
 	text-align: center;
+}
+
+.contactDetails img {
+    vertical-align: bottom;
 }

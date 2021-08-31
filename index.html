@@ -19,37 +19,36 @@
         <title>William Hilmersson</title>
     </head>
     <body id="top">
-        <header>
+        <header> <!-- Högst upp på sidan -->
 	    	<div class="headerbox">
-				<div class="menuMobile">
+				<div class="menuMobile"> <!-- Blir synlig på ipads och mobiltelefoner -->
 					<div class="logoMobile">
-						<h2>Hilmersson</h2>
-
+                        <p><a href="index.html">Hilmersson</a></p>
 						<label for="mmTrigger" id="mmClick">&#9776;</label>
 					</div>
 					<input type="checkbox" id="mmTrigger"> <!-- Måste vara här för ~ css regler -->
 					<div class="navMobile">
 						<ul class="menuMobile">
-							<li><a for="mmTrigger" href="#start">Start</a></li>
-							<li><a for="mmTrigger" href="#referenser">Referenser</a></li>
-							<li><a for="mmTrigger" href="#sida2">Kontakta</a></li>
+							<li><a for="mmTrigger" href="index.html#start">Start</a></li>
+							<li><a for="mmTrigger" href="index.html#referenser">Referenser</a></li>
+							<li><a for="mmTrigger" href="kontakt.html#start">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="desktopmenu">
+				<div class="desktopmenu"> <!-- Synlig på storbild: laptops och desktops -->
 					<div class="logo">
 						<a href="index.html">Hilmersson</a>
 					</div>
 					<nav>
 						<ul class="menu">
-							<li><a href="#start">Start</a></li>
-							<li><a href="#referenser">Referenser</a></li>
-							<li><a href="#sida2">Kontakta</a></li>
+							<li><a href="index.html#start">Start</a></li>
+							<li><a href="index.html#referenser">Referenser</a></li>
+							<li><a href="kontakt.html#start">Kontakt</a></li>
 						</ul>
 					</nav>
 				</div>
     	    </div>
-            <div class="headerbox slogan">
+            <div class="headerbox slogan"> <!-- Nedre halvan av sidhuvudet -->
 				<h1>Digital innovation som ställer om ditt företags marknadsföring.</h1>
             </div>
         </header>
@@ -59,9 +58,7 @@
                 <div class="circlePhoto circleLeft"></div>
                 <article>
                     <h3>Checklista &check;</h3>
-                    <!-- Godkänt se https://stackoverflow.com/questions/1605454/can-we-place-img-inside-h1-according-to-web-standards -->
                     <ul class="checklist">
-                        <!-- Nedanför kunde jag inte lägga en "&check;" på ::after då jag har nestade listor -->
                         <li class="nested">
                             Webbplatsen skall bestå av minst två HTML-filer som är ihoplänkade via en meny, och en primär CSS-fil som styr allt utseende. &check;
                             <ul>
@@ -124,10 +121,10 @@
 				<div class="circlePhoto circleHidden"></div>
                 <article>
                     <h3>Mitt designupplägg</h3>
-                    <p>Mitt mål var att skapa en hemsida som är enkel att nagivera då vi människor är lata och inte vill läsa en massa text utan att något händer. Första intrycket är en stor och välkomnande landbana som inte innehåller för mycket information. Här valde jag en bakgrundsbild som är trevlig för ögonen med färger som passar bra ihop på startsidan: sidhuvud med vit bakgrund och grön text som gräset och skogen, när man skrollar ned så lägger sig den vita texten snyggt på skogens gröna bakgrund eftersom bakgrunden är fastlimmad på plats(lite som att åka hiss). Jag hade planerat att använda samma font för alla rubriker men så såg jag en <a href="https://css-tricks.com/design-considerations-text-images/#full-page-images" target="_blank">artikel</a> när jag letade efter metoder att göra fotobakgrunden mörkare och bestämde mig för att sno fonten också. Alla bilder och fonter är godkända för kommersiellt syfte och hämtade från <a href="https://fonts.google.com/" target="_blank">google.com</a>, <a href="https://pixabay.com" target="_blank">pixabay.com</a> och <a href="https://www.flaticon.com/" target="_blank">flaticon.com</a>.</p>
-                    <p>Sidan följer HTML5 standard med en header för sidhuvudet, där i har jag placerat min "hemknapp" eller logga och en navigeringbar. För att få elementen på plats använde jag flexbox som gör att strukturen på hemsidan är lätt att styra utan att oroa sig för spaghetti-kod. Länkarna är uppbyggda i en lista för att ge stöd åt skärmläsare och för att skapa struktur. Alla länkar är designade för att följa färgschemat och ge kontrast mot den tjocka texten i landbanan. Istället för att länka till flera olika html sidor så la jag huvudinnehållet under index men gjorde hemsidan i flera olika 'lager' och med hjälp av smooth scrolling och ankare är det möjligt utan Javascript, fast hade javascript varit tillåtet hade jag använt det utöver.</p>
-                    <p>Den här sidan du läser nu är tänkt att skapa kontrast till ladning page. Du märker att när du skrollar så repeterar bakgrunden istället för att vara fastlimmad. Jag har försökt minimera distraktionerna genom att skapa flera sektioner i kolumner med olika innehåll istället för att lägga dem sida vid sida där läsaren behöver leta sig fram i strukturen. Motivet på den här sidan var <em>skolbänk</em>, lekfull bakgrund med vita sektioner som ska likna A4-papper och en font som påminner lite om en skrivmaskin. Skuggan hjälper till att skapa attraktiva detaljer. Även den här sidan är strukturerad med Flexbox fast i vertikal struktur istället för horisontell.</p>
-                    <p>För att underlätta för mig själv så gjorde jag hemsidan användarvänlig från början genom att arbeta med procent och em. Jag undvek helt och hållet bestämda enheter så som px, pt för att göra så lite ändringar som möjligt i den mobilvänliga layouten.</p>
+                    <p>Mitt mål var att skapa en hemsida som är enkel att nagivera då vi människor är lata och inte vill läsa en massa text utan att något händer. Första intrycket är en stor och välkomnande landbana som inte innehåller för mycket information. Här valde jag en bakgrundsbild som är trevlig för ögonen med färger som passar bra ihop på startsidan: sidhuvud med skog i bakgrunden och när man skrollar ned så lägger sig den bruna startsidan en snygg kontrast till sidans huvud. Alla bilder och fonter är godkända för kommersiellt syfte och hämtade från <a href="https://fonts.google.com/" target="_blank">google.com</a>, <a href="https://pixabay.com" target="_blank">pixabay.com</a> och <a href="https://www.uxwing.com/" target="_blank">uxwing.com</a>.</p>
+                    <p>Sidan följer HTML5 standard med en header för sidhuvudet, där i har jag placerat min "hemknapp" eller logga och en navigeringbar. För att få elementen på plats använde jag flexbox som gör att strukturen på hemsidan är lätt att styra utan att oroa sig för spaghetti-kod. Länkarna är uppbyggda i en lista för att ge stöd åt skärmläsare och för att skapa struktur. Alla länkar är designade för att följa färgschemat och ge kontrast mot den tjocka texten i landbanan. Istället för att länka till flera olika html sidor så la jag huvudinnehållet under index men gjorde hemsidan i flera olika 'lager' och med hjälp av smooth scrolling och ankare är det möjligt utan Javascript, fast hade javascript varit tillåtet hade jag använt det utöver. </p>
+                    <p>Den här sidan du läser nu är tänkt att skapa kontrast till ladning page, samtidigt som sista sidan ger dig känslan av att ha skrollat genom jorden ner till australien. Ett undantag jag gjode från mallen var att jag la sista sektionen som en stor under dem tre övre för att det blev finare än att ha fyra smala bredvid varandra. Motivet på den här sidan var <em>natur</em>, </p>
+                    <p>För att underlätta för mig själv så gjorde jag hemsidan användarvänlig från början genom att arbeta med procent och em. Jag undvek nästan helt och hållet bestämda enheter så som px, pt för att göra så lite ändringar som möjligt i den mobilvänliga layouten.</p>
                 </article>
                 <div class="share">
                     <input type="checkbox" id="share1">
@@ -143,12 +140,9 @@
                     <li>
                         <h4>Bilder</h4>
                         <ul>
-                            <li>boy-6158164.jpg - <a href="https://pixabay.com/photos/boy-child-lake-bank-field-river-6158164/" target="_blank">jatocreate</a></li>
-                            <li>macaron-1084049.jpg - <a href="https://pixabay.com/illustrations/macaron-macaroon-stylized-macaron-1084049/" target="_blank">Viscious-Speed</a></li>
-                            <li><s>field-192179.jpg</s> - <a href="https://pixabay.com/photos/field-cereals-summer-sun-sunshine-192179/" target="_blank">realworkhard</a></li>
-                            <li>atacama-desert-594605 - <a href="https://pixabay.com/photos/atacama-desert-chile-flamingos-594605/" target="_blank">TravelCoffeeBook</a></li>
-                            <li>macarons - 1084049.png - <a href="https://www.flaticon.com/free-icon/macarons_1075861?term=macarons&page=1&position=2&page=1&position=2&related_id=1075861&origin=tag" target="_blank">Freepik</a></li>
-                            <li>bookmark.png - <a href="https://www.flaticon.com/free-icon/bookmark_149264" target="_blank">Smashicons</a></li>
+                            <li>boy-6158164.jpg - <a href="https://pixabay.com/photos/boy-child-lake-bank-field-river-6158164/" target="_blank">pixabay</a></li>
+                            <li>dirt - <a href="https://pixabay.com/photos/dirt-soil-potting-mix-ground-mud-947985/" target="_blank">Pixabay</a></li>
+                            <li>koala.png - <a href="https://pixabay.com/photos/koala-marsupial-herbivore-arboreal-4757210/" target="_blank">Pixabay</a></li>
                         </ul>
                     </li>
                     <li>
@@ -185,10 +179,9 @@
         <footer>
             <div class="footerDiv">
 				<a href="#top">Ta mig till toppen</a>
-				<a href="kontakt.html">Kontakta mig</a>
+				<a href="kontakt.html#start">Kontakta mig</a>
             	<a href="bonus.html">Bonussidan</a>
 			</div>
-            <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> &amp; <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </footer>
     </body>
 </html>

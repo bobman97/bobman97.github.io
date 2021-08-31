@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="description" content="Examination">
+        <meta name="author" content="William Hilmersson">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <!-- IMPORT CSS -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Strukturen på hemsidan -->
+        <link rel="stylesheet" href="css/fonts.css">
+        <!-- Inställningar på all text -->
+        <link rel="stylesheet" href="css/colors.css">
+        <!-- Val av färger på alla element -->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- Mobil/Tablet/Laptop vänlighet sist för att skriva över ovan -->
+        <!-- SYNLIGA DETALJER -->
+        <title>William Hilmersson</title>
+    </head>
+    <body id="top">
+        <header> <!-- Högst upp på sidan -->
+	    	<div class="headerbox">
+				<div class="menuMobile"> <!-- Blir synlig på ipads och mobiltelefoner -->
+					<div class="logoMobile">
+                        <p><a href="index.html">Hilmersson</a></p>
+						<label for="mmTrigger" id="mmClick">&#9776;</label>
+					</div>
+					<input type="checkbox" id="mmTrigger"> <!-- Måste vara här för ~ css regler -->
+					<div class="navMobile">
+						<ul class="menuMobile">
+							<li><a for="mmTrigger" href="index.html#start">Start</a></li>
+							<li><a for="mmTrigger" href="index.html#referenser">Referenser</a></li>
+							<li><a for="mmTrigger" href="kontakt.html#start">Kontakt</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="desktopmenu"> <!-- Synlig på storbild: laptops och desktops -->
+					<div class="logo">
+						<a href="index.html">Hilmersson</a>
+					</div>
+					<nav>
+						<ul class="menu">
+							<li><a href="index.html#start">Start</a></li>
+							<li><a href="index.html#referenser">Referenser</a></li>
+							<li><a href="kontakt.html#start">Kontakt</a></li>
+						</ul>
+					</nav>
+				</div>
+    	    </div>
+            <div class="headerbox slogan"> <!-- Nedre halvan av sidhuvudet -->
+				<h1>Digital innovation som ställer om ditt företags marknadsföring.</h1>
+            </div>
+        </header>
+        <div class="wrap" id="start">
+			<div class="wraptop"></div>
+			<section id="contact">
+                <article>
+                    <h3>Redo att ta det till nästa nivå?</h3>
+                    <form>
+                        <fieldset>
+                            <p>
+                                <label for="name">Namn </label>
+                                <input type="text" name="name">
+                            </p>
+                            <p>
+                                <label for="mail">Epost </label>
+                                <input type="text" name="mail">
+                            </p>
+                            <p>
+                                <label for="phone">Telefon </label>
+                                <input type="text" name="phone">
+                            </p>
+                            <p>
+                                <label for="message">Meddelande</label>
+                                <textarea name="message"></textarea>
+                            </p>
+                            <p>
+                                <input type="submit">
+                            </p>
+                        </fieldset>
+                    </form>
+                    <div class="contactDetails">
+                        <p><img src="img/tel.png" width="26"> 0702540913</p>
+                        <p><img src="img/info.png" width="26"> Vardagar 08 - 16 lunch 12 - 13.</p>
+                        <p><img src="img/email.png" width="26"> william@hilmersson.xyz</p>
+                        <p><img src="img/info.png" width="26"> Svarar inom 24 timmar</p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <footer>
+            <div class="footerDiv">
+				<a href="#top">Ta mig till toppen</a>
+				<a href="kontakt.html#start">Kontakta mig</a>
+            	<a href="bonus.html">Bonussidan</a>
+			</div>
+        </footer>
+    </body>
+</html>

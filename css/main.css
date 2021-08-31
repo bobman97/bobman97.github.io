@@ -46,7 +46,7 @@ header {
 	display:block;
 }
 
-.logoMobile h2 {
+.logoMobile p {
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -113,7 +113,7 @@ section {
  	flex-basis:calc(33% - 6em);
 }
 
-section:nth-of-type(4) {
+section:nth-of-type(4), #contact {
 	flex-basis:66%;
 }
 
@@ -202,4 +202,17 @@ footer {
 .footerDiv a {
 	padding:0 2em;
 	box-sizing: border-box;
+}
+
+/* Kontakt */
+fieldset {
+    text-align:center;
+}
+
+fieldset label {
+    display:block;
+}
+
+fieldset textarea {
+    min-height:100px;
 }
