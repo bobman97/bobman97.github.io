@@ -159,6 +159,9 @@
             color: var(--accent-color);
             font-size: 1.8em; /* Grundstorlek */
             font-weight: 500;
+            background-image:url('profile.png');
+            background-size: cover;
+
         }
 
         header h1 { 
@@ -217,6 +220,32 @@
             font-size: 1.3em; /* Anpassad till textstorlek */
             font-weight: 700;
         }
+
+        .job {
+            /* Add these styles for scroll animation - keep your existing .job styles too */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            /* You can add a slight delay if jobs are inside sections, e.g., transition-delay: 0.1s; */
+        }
+        .job.visible {
+            opacity: 1 !important; /* Use !important to ensure override if needed */
+            transform: translateY(0) !important;
+        }
+
+        /* Ensure your existing .job styles like margin, padding, border are not removed */
+        .job, .education-item, .other-experience-item {
+            /* ... your existing styles for these elements ... */
+            margin-bottom: 20px; 
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .job:last-child, .education-item:last-child, .other-experience-item:last-child {
+            /* ... your existing :last-child styles ... */
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
 
         .job, .education-item, .other-experience-item {
             margin-bottom: 20px; padding-bottom: 15px; /* Justerade marginaler */
@@ -554,7 +583,7 @@
     <div class="resume-content-wrapper" id="resumeSection">
         <div class="container">
             <header>
-                <div class="profile-image-placeholder">WH</div>
+                <div class="profile-image-placeholder"></div>
                 <h1 data-translate-key="header_name">Wille Hilmersson</h1>
                 <p data-translate-key="header_title">Service Desk & Workplace Technician</p>
             </header>
@@ -562,7 +591,7 @@
             <section id="about" class="section">
                 <h2 data-translate-key="about_title">About Me</h2>
                 <p data-translate-key="about_text">
-                    Technical problem solver with a strong sense of service and broad experience in IT support, infrastructure, and software development. I am passionate about creating smooth IT environments and delivering solutions that genuinely help users - especially in hybrid environments with M365, Azure, and Entra ID. With a background as both a developer and instructor, I have an unusually strong pedagogical ability and thrive in roles where people meet technology. I am now seeking the next challenge in IT support in the Öresund region.
+                    Technical problem solver with a strong sense of service and broad experience in IT support, infrastructure, and software development. I am passionate about creating smooth IT environments and delivering solutions that genuinely help users - especially in hybrid environments with M365, Azure, and Entra ID. With a background as both a developer and instructor, I have an unusually strong pedagogical ability and thrive in roles where people meet technology. I am now seeking the next challenge in Technology Services in the Öresund region.
                 </p>
             </section>
 
@@ -700,6 +729,7 @@
 
     <script>
         const translations = {
+            // ... (your existing translations object remains unchanged) ...
             en: {
                 hub_main_title: "WILLES HUB",
                 hub_tagline_text: "Exploring Technology. Building Solutions.",
@@ -724,7 +754,7 @@
                 skills_title: "Skills", skills_cat1: "IT Operations & Support", skill_incident: "Incident & Security Management", skill_troubleshooting: "Troubleshooting", skill_networking: "Networking", skill_hardware: "Hardware",
                 skills_cat2: "Development & Technology", skills_cat_lang: "Languages", lang_sv: "Swedish (Native)", lang_en: "English (Fluent)", lang_da: "Danish (Very good)", lang_no: "Norwegian (Very good)",
                 education_title: "Education", edu1_degree: "Software Engineering and Management", edu1_uni: "University of Gothenburg", edu1_period_aug: "August", edu1_period_march: "March", edu1_desc: "Description: Software Architecture, Agile Development, Fullstack",
-                projects_title: "Projects", // Behåll eller uppdatera om du hade en annan nyckel
+                projects_title: "Projects",
                 projects_tech_label: "Technologies:",
                 projects_view_link: "Visit Project",
                 project1_name: "Skåre 2024",
@@ -749,7 +779,7 @@
                 contact_close_modal_btn: "Stäng",
                 nav_about: "Om mig", nav_experience: "Arbetslivserfarenhet", nav_skills: "Kompetenser", nav_education: "Utbildning", nav_projects: "Projekt",
                 header_name: "Wille Hilmersson", header_title: "Service Desk & Workplace Tekniker",
-                about_title: "Profil", about_text: "Teknisk problemlösare med stark servicekänsla och bred erfarenhet inom IT-support, infrastruktur och mjukvaruutveckling. Jag brinner för att skapa smidiga IT-miljöer och leverera lösningar som verkligen hjälper användarna - särskilt i hybridmiljöer med M365, Azure och Entra ID. Med bakgrund som både utvecklare och instruktör har jag en ovanligt stark pedagogisk förmåga och trivs i roller där människa möter teknik. Nu söker jag nästa utmaning inom IT-support i Öresundsregionen.",
+                about_title: "Profil", about_text: "Teknisk problemlösare med stark servicekänsla och bred erfarenhet inom IT-support, infrastruktur och mjukvaruutveckling. Jag brinner för att skapa smidiga IT-miljöer och leverera lösningar som verkligen hjälper användarna - särskilt i hybridmiljöer med M365, Azure och Entra ID. Med bakgrund som både utvecklare och instruktör har jag en ovanligt stark pedagogisk förmåga och trivs i roller där människa möter teknik. Nu söker jag nästa utmaning inom Technology Services i Öresundsregionen.",
                 experience_title: "Arbetslivserfarenhet", exp1_title: "IT-Support & Workplace Technician", exp1_location: "", exp1_period_march: "Mar", present: "Pågående",
                 exp1_desc1: "Daglig support i hybrid IT-miljö med M365, Azure & Entra ID", exp1_desc2: "Felsökning, incidenthantering och säkerhetsärenden", exp1_desc3: "Involverad i interna utvecklingsprojekt",
                 exp2_title: "Webbutvecklare", exp2_location: "", exp2_period_oct: "Okt", exp2_period_oct_end: "Okt",
@@ -761,115 +791,179 @@
                 skills_title: "Kompetenser", skills_cat1: "IT-drift & Support", skill_incident: "Incident- & säkerhetshantering", skill_troubleshooting: "Felsökning", skill_networking: "Nätverk", skill_hardware: "Hårdvara",
                 skills_cat2: "Utveckling & Teknik", skills_cat_lang: "Språk", lang_sv: "Svenska (Modersmål)", lang_en: "Engelska (Flytande)", lang_da: "Danska (Mycket bra)", lang_no: "Norska (Mycket bra)",
                 education_title: "Utbildning", edu1_degree: "Software Engineering and Management", edu1_uni: "Göteborgs Universitet", edu1_period_aug: "Aug", edu1_period_march: "Mar", edu1_desc: "Beskrivning: Mjukvaruarkitektur, Agil utveckling, Fullstack",
-                projects_title: "Projekt", // Behåll eller uppdatera
+                projects_title: "Projekt",
                 projects_tech_label: "Tekniker:",
                 projects_view_link: "Besök Projektet",
-                project1_name: "Skåre 2024", // Från PDF [cite: 8]
-                project1_desc: "Ett verktyg för att hjälpa klasskompisar att presentera men också hitta åk-kompisar på vår gemensamma skidresa 2024.", // Från PDF [cite: 8]
-                project2_name: "OSBot Scripts", // Anpassat från "OSBot" i PDF [cite: 8]
-                project2_desc: "Flera script i Java som arbetar mot en API för att hjälpa användare automatisera uppgifter i spelet \"Old School RuneScape\".", // Från PDF [cite: 8]
-                project3_name: "Kloaken", // Från PDF [cite: 8]
-                project3_desc: "Ett webbaserat dryckesspel designat för social interaktion och gruppdynamik. Genom att ansluta till spelets sessioner får användarna tillgång till underhållande utmaningar och frågor, vilket skapar en lättsam atmosfär och främjar sociala interaktioner.", // Från PDF [cite: 8]
+                project1_name: "Skåre 2024",
+                project1_desc: "Ett verktyg för att hjälpa klasskompisar att presentera men också hitta åk-kompisar på vår gemensamma skidresa 2024.",
+                project2_name: "OSBot Scripts",
+                project2_desc: "Flera script i Java som arbetar mot en API för att hjälpa användare automatisera uppgifter i spelet \"Old School RuneScape\".",
+                project3_name: "Kloaken",
+                project3_desc: "Ett webbaserat dryckesspel designat för social interaktion och gruppdynamik. Genom att ansluta till spelets sessioner får användarna tillgång till underhållande utmaningar och frågor, vilket skapar en lättsam atmosfär och främjar sociala interaktioner.",
                 contact_email_label: "E-post:", contact_linkedin_label: "LinkedIn:", contact_linkedin_link_text: "https://www.linkedin.com/in/wille-hilmersson/",
                 contact_github_label: "GitHub:", contact_github_link_text: "[Din GitHub Profil]", contact_website_label: "Webbplats:", contact_phone_label: "Telefon:",
                 footer_rights: "Alla rättigheter förbehållna."
             }
         };
 
-        let currentLang = 'sv'; 
+        let currentLang = 'sv';
         let typingInProgress = false;
+        let typeTextTimeoutId = null;
 
         function setLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
-            $('[data-translate-key]').each(function() {
-                const key = $(this).data('translate-key');
-                if (translations[lang] && typeof translations[lang][key] !== 'undefined') {
-                    $(this).html(translations[lang][key]);
-                } else if (translations['en'] && typeof translations['en'][key] !== 'undefined') { 
-                    $(this).html(translations['en'][key]);
-                }
+
+            // 1. Stop current tagline animation and clear its container
+            if (typeTextTimeoutId) {
+                clearTimeout(typeTextTimeoutId);
+                typeTextTimeoutId = null;
+            }
+            typingInProgress = false; // Signal any ongoing type() loop in typeText to stop
+            const $hubTagline = $('#hubTagline');
+            $hubTagline.html('').stop(true, true); // Clear content & stop any jQuery animations on it
+
+            const $translatableElements = $('[data-translate-key]');
+            const fadeDuration = 250; // Duration for fade out/in in milliseconds
+
+            // 2. Define elements to fade (all translatable static text + the tagline container)
+            const $elementsToAnimate = $translatableElements.add($hubTagline);
+
+            // 3. Fade out elements
+            $elementsToAnimate.stop(true, true).animate({ opacity: 0 }, fadeDuration).promise().done(function() {
+                // This executes after ALL fadeOut animations in $elementsToAnimate are complete.
+
+                // 4. Update static text content (now that they are invisible)
+                $translatableElements.each(function() {
+                    const $element = $(this);
+                    const key = $element.data('translate-key');
+                    // Fallback logic for translations
+                    if (translations[lang] && typeof translations[lang][key] !== 'undefined') {
+                        $element.html(translations[lang][key]);
+                    } else if (translations['en'] && typeof translations['en'][key] !== 'undefined') {
+                        $element.html(translations['en'][key]);
+                    } else {
+                        $element.html(''); // Clear if no translation found
+                    }
+                });
+
+                // Update active language button styling
+                $('.lang-switcher button').removeClass('active-lang');
+                $('#lang-' + lang).addClass('active-lang');
+                
+                // 5. Fade IN all elements
+                $elementsToAnimate.animate({ opacity: 1 }, fadeDuration).promise().done(function() {
+                    // This executes after ALL fadeIn animations are complete.
+
+                    // 6. Re-trigger tagline typing for the new language
+                    // (Ensuring its container, $hubTagline, is now visible)
+                    const newTaglineText = translations[currentLang].hub_tagline_text || translations.en.hub_tagline_text;
+                    if (newTaglineText) { // Only type if there's text for the tagline
+                        typeText($hubTagline, newTaglineText);
+                    } else {
+                        $hubTagline.html(''); // Ensure it's empty if no tagline text
+                        typingInProgress = false; // Ensure flag is reset if no typing
+                    }
+                });
             });
-            $('.lang-switcher button').removeClass('active-lang');
-            $('#lang-' + lang).addClass('active-lang');
-            
-            const taglineText = translations[currentLang].hub_tagline_text || translations.en.hub_tagline_text;
-            typeText($('#hubTagline'), taglineText);
         }
 
+
         function typeText($element, textToType) {
-            if (typingInProgress) return;
-            typingInProgress = true;
-            $element.html(''); 
+            if (typeTextTimeoutId) { // Clear any existing timeout for this typing instance
+                clearTimeout(typeTextTimeoutId);
+                typeTextTimeoutId = null;
+            }
+
+            // typingInProgress = true; // Moved this to be set just before starting the loop
+            $element.html(''); // Clears old text
             let i = 0;
-            const speed = 90; 
+            const speed = 90;
             
+            typingInProgress = true; // Set flag that typing is now active
+
             function type() {
+                if (!typingInProgress) { // If flag was set to false externally (e.g., by setLanguage)
+                    $element.html(''); // Clear partially typed text
+                    return;
+                }
                 if (i < textToType.length) {
                     $element.append(textToType.charAt(i));
                     i++;
-                    setTimeout(type, speed);
+                    typeTextTimeoutId = setTimeout(type, speed); // Store the timeout ID
                 } else {
                     $element.append('<span class="typing-cursor"></span>');
-                    typingInProgress = false;
+                    typingInProgress = false; // Typing complete
+                    typeTextTimeoutId = null;
                 }
             }
             type();
         }
 
+        // Helper function to check if an element is in viewport
+        // offset: how many pixels from the bottom of the viewport the element top should be before animating
+        function isElementInViewport(el, offset = 50) {
+            if (el instanceof jQuery) {
+                el = el[0];
+            }
+            const rect = el.getBoundingClientRect();
+            const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+            return (
+                rect.top <= windowHeight - offset && // Element's top is 'offset' pixels from viewport bottom or higher
+                rect.bottom >= 0 // Element's bottom is below viewport top (ensures it's not fully scrolled past)
+            );
+        }
+
+        // Function to check and animate elements on scroll
+        function revealElementsOnScroll() {
+            // Target both .section and .job elements that are not yet visible
+            const $itemsToReveal = $('#resumeSection .section:not(.visible), #resumeSection .job:not(.visible)');
+            $itemsToReveal.each(function() {
+                const $item = $(this);
+                if (isElementInViewport($item)) {
+                    $item.addClass('visible');
+                }
+            });
+        }
+
         $(document).ready(function(){
-            setLanguage(currentLang); 
+            setLanguage(currentLang);
             $('#currentYear').text(new Date().getFullYear());
 
-            // Show Resume with Simplified Animation (for debugging)
             $('#viewResumeButton').on('click', function() {
-                if ($('#resumeSection').is(':hidden')) { 
-                    $('#hubHome').slideUp(400);
-                    
-                    // Reset sections for animation - this ensures they are in their "hidden" state
-                    $('#resumeSection .section').removeClass('visible').css({'opacity': '0', 'transform': 'translateY(20px)'});
-                    
-                    $('#resumeSection').slideDown(600, function() { // slideDown the main wrapper
-                        $('html, body').animate({ scrollTop: ($('#resumeSection').offset().top - 20) }, 300);
+                if ($('#resumeSection').is(':hidden')) {
+                    $('#hubHome').fadeOut(400, function() {
+                        // Reset all CV sections and jobs to their initial non-visible state
+                        $('#resumeSection .section, #resumeSection .job')
+                            .removeClass('visible')
+                            .css({'opacity': '0', 'transform': 'translateY(20px)'});
                         
-                        // **FÖRENKLING:** Gör alla sektioner synliga direkt.
-                        // CSS-övergången på .section bör få dem att animera.
-                        // Om detta fungerar, är problemet i den stegvisa logiken.
-                        // Om detta INTE fungerar, är problemet troligen i CSS för .section/.section.visible
-                        // eller hur slideDown() beter sig.
-                        $('#resumeSection .section').addClass('visible'); 
+                        $('#resumeSection').fadeIn(400, function() {
+                            $('html, body').animate({ scrollTop: ($('#resumeSection').offset().top - 20) }, 300);
+                            revealElementsOnScroll(); // Initial check for elements already in view
+                            $(window).on('scroll.cvItems resize.cvItems', revealElementsOnScroll); // Attach scroll/resize listener
+                        });
+                        $('#backToHubButton').fadeIn(300);
                     });
-                    $('#backToHubButton').fadeIn();
-                } else { 
-                    // If resume is already visible, perhaps just scroll to top of it
+                } else {
                     $('html, body').animate({ scrollTop: ($('#resumeSection').offset().top - 20) }, 400);
                 }
             });
-            
-            // Contact Modal Logic
-            const $contactModal = $('#contactModal');
-            $('#openContactModalButton').on('click', function() {
-                $contactModal.addClass('visible');
-            });
 
-            $('#closeContactModalButton').on('click', function() {
-                $contactModal.removeClass('visible');
-            });
-
-            $contactModal.on('click', function(event) {
-                if ($(event.target).is($contactModal)) {
-                    $contactModal.removeClass('visible');
-                }
-            });
-            
-            // Back to Hub
             $('#backToHubButton').on('click', function() {
-                $('#resumeSection .section').removeClass('visible').css({'opacity':'0', 'transform':'translateY(20px)'});
-                $('#resumeSection').slideUp(400, function() {
-                     $('html, body').animate({ scrollTop: 0 }, 300);
+                $(window).off('scroll.cvItems resize.cvItems'); // Remove scroll/resize listener
+                $('#resumeSection').fadeOut(400, function() {
+                    $('html, body').animate({ scrollTop: 0 }, 300);
+                    $('#hubHome').fadeIn(400);
                 });
-                $('#hubHome').slideDown(600);
-                $(this).fadeOut();
+                $(this).fadeOut(300);
+            });
+
+            const $contactModal = $('#contactModal');
+            $('#openContactModalButton').on('click', function() { $contactModal.addClass('visible'); });
+            $('#closeContactModalButton').on('click', function() { $contactModal.removeClass('visible'); });
+            $contactModal.on('click', function(event) {
+                if ($(event.target).is($contactModal)) { $contactModal.removeClass('visible'); }
             });
             
             $('#lang-en').on('click', function() { setLanguage('en'); });
