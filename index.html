@@ -1,187 +1,881 @@
 <!DOCTYPE html>
 <html lang="sv">
-    <head>
-        <!-- META -->
-        <meta charset="utf-8">
-        <meta name="description" content="Examination">
-        <meta name="author" content="William Hilmersson">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-        <!-- IMPORT CSS -->
-        <link rel="stylesheet" href="css/main.css">
-        <!-- Strukturen på hemsidan -->
-        <link rel="stylesheet" href="css/fonts.css">
-        <!-- Inställningar på all text -->
-        <link rel="stylesheet" href="css/colors.css">
-        <!-- Val av färger på alla element -->
-        <link rel="stylesheet" href="css/responsive.css">
-        <!-- Mobil/Tablet/Laptop vänlighet sist för att skriva över ovan -->
-        <!-- SYNLIGA DETALJER -->
-        <title>William Hilmersson</title>
-    </head>
-    <body id="top">
-        <header> <!-- Högst upp på sidan -->
-	    	<div class="headerbox">
-				<div class="menuMobile"> <!-- Blir synlig på ipads och mobiltelefoner -->
-					<div class="logoMobile">
-                        <p><a href="index.html">Hilmersson</a></p>
-						<label for="mmTrigger" id="mmClick">&#9776;</label>
-					</div>
-					<input type="checkbox" id="mmTrigger"> <!-- Måste vara här för ~ css regler -->
-					<div class="navMobile">
-						<ul class="menuMobile">
-							<li><a for="mmTrigger" href="index.html#start">Start</a></li>
-							<li><a for="mmTrigger" href="index.html#referenser">Referenser</a></li>
-							<li><a for="mmTrigger" href="kontakt.html#start">Kontakt</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="desktopmenu"> <!-- Synlig på storbild: laptops och desktops -->
-					<div class="logo">
-						<a href="index.html">Hilmersson</a>
-					</div>
-					<nav>
-						<ul class="menu">
-							<li><a href="index.html#start">Start</a></li>
-							<li><a href="index.html#referenser">Referenser</a></li>
-							<li><a href="kontakt.html#start">Kontakt</a></li>
-						</ul>
-					</nav>
-				</div>
-    	    </div>
-            <div class="headerbox slogan"> <!-- Nedre halvan av sidhuvudet -->
-				<h1>Digital innovation som ställer om ditt företags marknadsföring.</h1>
-            </div>
-        </header>
-        <div class="wrap" id="start">
-			<div class="wraptop"></div>
-            <section id="artikel1">
-                <div class="circlePhoto circleLeft"></div>
-                <article>
-                    <h3>Checklista &check;</h3>
-                    <ul class="checklist">
-                        <li class="nested">
-                            Webbplatsen skall bestå av minst två HTML-filer som är ihoplänkade via en meny, och en primär CSS-fil som styr allt utseende. &check;
-                            <ul>
-                                <li>Se sida: Bonus i fotnot.</li>
-                            </ul>
-                        </li>
-                        <li>En av HTML-sidorna skall innehålla rapporten med din processanalys och de andra kan innehålla vad du vill. Rapporten skall alltså vara text som är en del av webbplatsen, ej länk till något externt dokument. &check;</li>
-                        <li>Sidorna skall vara responsiva. Du skall använda “media queries” för att få sidan anpassad för minst två upplösningar. &check;</li>
-                        <li>Bilden på mobilsidan, i den tilldelade mockupen, kan tolkas på två sätt – dels att enbart mittenkolumnen från desktopsidan visas, alternativt att alla tre visas i en kolumn, med mittenkolumnen först. Den första varianten är mycket lättare än den andra. Pluspoäng för den som löser variant två, eller ger ett bra resonemang kring hur man kan tänka kring lösning av den. &check;</li>
-                        <li>Någonstans på sidorna skall du använda något typsnitt från Google fonts eller liknande tjänster, exempelvis på rubriker eller brödtexten. &check;</li>
-                        <li class="nested">
-                            Innehållsdelens höjd skall anpassas automatiskt efter mängden innehåll på sidan, det vill säga att ni inte skall koda in fasta höjder på innehållscontainers. &check;
-                            <ul>
-                                <li>Se sida: Processanalys i sidhuvud.</li>
-                            </ul>
-                        </li>
-                        <li>Sidornas titel skall vara ditt namn. &check;</li>
-                        <li>Sidornas skall validera som minst xhtml 1.0 transitional. Pluspoäng för xhtml strict-validering eller korrekt använd HTML5. &check;</li>
-                        <li>Sidornas struktur skall vara uppbyggd av div-taggar, ej tabeller. &check;</li>
-                        <li>Vid utskrift av sidan skall stora bildelement på sidan döljas. Däremot skall inte alla bilder döljas. Även andra element som är irrelevanta att ha kvar vid utskrift, som till exempel en meny, skall döljas. &check;</li>
-                        <li>Koden skall vara kommenterad, dvs ni förklarar med egna ord vad som händer på olika ställen i koden. Dessa kommentarer används i bedömningen av er uppgift, så beskriv på ett bra men kortfattat sätt hur ni tänkt er koden. Detta gäller html såväl som css. &check;</li>
-                        <li>Startsidan skall heta “index.html” &check;</li>
-                        <li>Koden skall över lag vara av god kvalitet och följa modern standard. &check;</li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willes Hub - Tech & Innovation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #101010;        /* Very dark grey, almost black */
+            --secondary-bg: #1C1C1C;      /* Dark grey for cards/sections */
+            --accent-color: #EAEAEA;       /* Light grey / Off-white as primary accent */
+            --secondary-accent: #A0A0A0;   /* Medium grey for secondary elements */
+            --text-color: #E0E0E0;         /* Light grey for main text */
+            --text-muted: #888888;         /* Darker Muted grey */
+            --highlight-bg: #282828;      /* Background for hovered interactive elements */
+            --border-color: #333333;       /* Dark, subtle border */
+        }
+
+        html {
+            scroll-behavior: smooth; /* För mjukare scroll med interna länkar */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden; /* Förhindra horisontell scroll */
+            -webkit-font-smoothing: antialiased; /* Förbättra textrendering */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hub Section */
+        .hub-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px 15px; /* Justerad padding */
+            box-sizing: border-box;
+        }
+
+        .hub-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 2.8em; /* Grundstorlek, justeras i media query */
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            animation: fadeInElement 1.2s ease-out 0.2s backwards;
+        }
+
+        .hub-tagline {
+            font-size: 1.3em; /* Grundstorlek */
+            font-weight: 300;
+            color: var(--secondary-accent);
+            margin-bottom: 30px; /* Justerad marginal */
+            min-height: 2em;
+            animation: fadeInElement 1.2s ease-out 0.5s backwards;
+            padding: 0 10px; /* Förhindra att texten går ända ut i kanten */
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.3em; /* Anpassad till tagline-storlek */
+            background-color: var(--secondary-accent);
+            animation: blinkCursor 0.8s infinite;
+            margin-left: 4px;
+            vertical-align: baseline;
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { background-color: var(--secondary-accent); }
+            50% { background-color: transparent; }
+        }
+
+        .hub-cta-buttons {
+            animation: fadeInElement 1.2s ease-out 0.8s backwards;
+            margin-top: 25px; /* Justerad marginal */
+            width: 100%;
+            max-width: 350px; /* Maxbredd för knappar på större skärmar */
+        }
+
+        .cta-button {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1.5px solid var(--accent-color);
+            padding: 12px 25px; /* Justerad padding */
+            margin: 8px 5px; /* Justerad marginal */
+            font-size: 1em; /* Grundstorlek */
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block; /* För att de ska kunna stackas */
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+        
+        .cta-button.primary {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+        }
+        .cta-button.primary:hover {
+            background-color: var(--secondary-accent);
+            border-color: var(--secondary-accent);
+            color: var(--primary-bg);
+        }
+
+        /* Resume Section */
+        .resume-content-wrapper {
+            display: none; 
+            width: 100%;
+            background-color: var(--primary-bg);
+            padding: 40px 0; /* Justerad padding */
+            box-sizing: border-box;
+        }
+
+        .container { 
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px 15px; /* Grundpadding, justeras i media query */
+            box-sizing: border-box;
+        }
+
+        header { 
+            text-align: center;
+            padding-bottom: 20px; /* Justerad padding */
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px; /* Justerad marginal */
+        }
+        
+        .profile-image-placeholder {
+            width: 90px; /* Grundstorlek */
+            height: 90px; /* Grundstorlek */
+            background-color: var(--secondary-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 15px auto; /* Justerad marginal */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.8em; /* Grundstorlek */
+            font-weight: 500;
+        }
+
+        header h1 { 
+            font-weight: 700;
+            margin: 0;
+            font-size: 2em; /* Grundstorlek */
+            color: var(--text-color);
+        }
+
+        header p { 
+            font-size: 1em; /* Grundstorlek */
+            font-weight: 400;
+            color: var(--secondary-accent);
+        }
+
+        .section {
+            margin-bottom: 25px; /* Justerad marginal */
+            padding: 20px; /* Grundpadding */
+            background-color: var(--secondary-bg);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            box-sizing: border-box;
+        }
+        .section.visible { 
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        .section:last-of-type { margin-bottom: 0; }
+
+        .section h2 {
+            font-weight: 500;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px; /* Justerad padding */
+            margin-top: 0;
+            margin-bottom: 15px; /* Justerad marginal */
+            font-size: 1.4em; /* Grundstorlek */
+            letter-spacing: 0.3px;
+        }
+
+        .section ul { list-style: none; padding: 0; }
+        .section ul li {
+            margin-bottom: 10px; /* Justerad marginal */
+            padding-left: 20px; /* Justerad padding */
+            position: relative;
+            font-size: 0.95em; /* Grundstorlek */
+        }
+        .section ul li::before {
+            content: '›';
+            position: absolute;
+            left: 5px;
+            color: var(--accent-color);
+            font-size: 1.3em; /* Anpassad till textstorlek */
+            font-weight: 700;
+        }
+
+        .job, .education-item, .other-experience-item {
+            margin-bottom: 20px; padding-bottom: 15px; /* Justerade marginaler */
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .job:last-child, .education-item:last-child, .other-experience-item:last-child { border-bottom: none; padding-bottom: 0;}
+
+        .job h3, .education-item h3, .other-experience-item h3 {
+            margin: 0 0 5px 0; /* Justerad marginal */
+            color: var(--text-color); 
+            font-size: 1.15em; /* Grundstorlek */
+            font-weight: 500;
+        }
+        .job .company, .education-item .institution, .other-experience-item .organization {
+            font-weight: 500; color: var(--secondary-accent); font-size: 1em; /* Grundstorlek */
+        }
+        .job .date, .education-item .date, .other-experience-item .date {
+            font-style: normal; color: var(--text-muted); font-size: 0.85em; /* Grundstorlek */
+            margin-top: 2px; display: block;
+        }
+        .job p, .education-item p, .other-experience-item p { 
+            margin: 8px 0 0 0; color: var(--text-muted); font-size: 0.9em; /* Grundstorlek */
+        }
+        .education-item p[data-translate-key="edu1_desc"] { color: var(--text-color); }
+
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; } /* Mindre gap */
+        .skill-category {
+            font-weight: 500; color: var(--text-color); width: 100%; 
+            margin-bottom: 8px; margin-top: 15px; font-size: 1.1em; /* Grundstorlek */
+        }
+        .skill {
+            background-color: var(--secondary-bg); 
+            color: var(--secondary-accent);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px; /* Mindre padding */
+            border-radius: 15px;
+            font-size: 0.85em; /* Grundstorlek */
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+        .skill:hover {
+            background-color: var(--highlight-bg);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .project-link {
+            display: inline-block; /* Gör att den kan ta padding och margin korrekt */
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: var(--accent-color); /* Använder din accentfärg */
+            color: var(--primary-bg); /* Textfärg som kontrasterar med accentfärgen */
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .project-link:hover {
+            background-color: var(--secondary-accent); /* Lite mörkare/ljusare vid hover */
+            transform: translateY(-1px);
+        }
+
+        footer { 
+            text-align: center; padding: 20px 0; margin-top: 30px; /* Justerade marginaler */
+            font-size: 0.85em; /* Grundstorlek */
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Page Controls (Language switcher, Back to Hub) */
+        .page-controls {
+            position: fixed;
+            top: 10px; /* Närmare kanten */
+            right: 10px; /* Närmare kanten */
+            z-index: 1001;
+            display: flex;
+            gap: 8px; /* Mindre gap */
+        }
+        .lang-switcher button, .resume-nav-button {
+            font-weight: 500;
+            background-color: rgba(28, 28, 28, 0.85); /* Lite genomskinlighet */
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 7px 10px; /* Mindre padding */
+            border-radius: 5px; /* Mindre radie */
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            font-size: 0.8em; /* Mindre text */
+        }
+        .lang-switcher button:hover, .resume-nav-button:hover,
+        .lang-switcher button.active-lang {
+            background-color: var(--highlight-bg);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .resume-nav-button { display: none; }
+
+        /* Contact Modal */
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.75); /* Lite mörkare overlay */
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            padding: 15px; /* Padding för att modalen inte ska nudda kanterna */
+            box-sizing: border-box;
+        }
+        .modal-overlay.visible {
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: var(--secondary-bg);
+            padding: 25px; /* Justerad padding */
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            width: 100%; /* Tar upp mer bredd på mobil, begränsas av max-width */
+            max-width: 450px; /* Något mindre maxbredd */
+            text-align: left;
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+            box-sizing: border-box;
+            overflow-y: auto; /* Om innehållet blir för långt */
+            max-height: 90vh; /* Maxhöjd för modalen */
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+        .modal-content h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 15px; /* Justerad marginal */
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            font-size: 1.3em; /* Justerad storlek */
+        }
+        .modal-content ul { list-style: none; padding: 0; }
+        .modal-content ul li { margin-bottom: 12px; color: var(--text-color); font-size: 0.9em; }
+        .modal-content ul li span { color: var(--secondary-accent); margin-right: 8px; }
+        .modal-content a { color: var(--accent-color); text-decoration: none; word-break: break-all; } /* Tillåt brytning av långa länkar */
+        .modal-content a:hover { color: var(--text-color); }
+        .close-modal-button {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            border: none;
+            padding: 10px 18px; /* Justerad padding */
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0 auto; /* Justerad marginal */
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            font-size: 0.95em;
+        }
+        .close-modal-button:hover {
+            background: var(--secondary-accent);
+        }
+        
+        @keyframes fadeInElement {
+            from { opacity:0; transform: translateY(10px); }
+            to { opacity:1; transform: translateY(0); }
+        }
+        
+        ::-webkit-scrollbar { width: 8px; height: 8px; } /* Anpassad bredd/höjd */
+        ::-webkit-scrollbar-track { background: var(--primary-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--secondary-accent); border-radius: 4px;}
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+        /* ------------------------------------------- */
+        /* ---------- MOBILANPASSNINGAR -------------- */
+        /* ------------------------------------------- */
+        @media (max-width: 768px) {
+            .hub-title {
+                font-size: 2.2em; /* Mindre på mobil */
+            }
+            .hub-tagline {
+                font-size: 1.1em; /* Mindre på mobil */
+                margin-bottom: 35px;
+            }
+            .hub-container p[data-translate-key="hub_intro_text"] {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+            .cta-button {
+                padding: 12px 18px; /* Något mindre padding */
+                font-size: 0.95em; /* Något mindre text */
+                display: block; /* Stacka knapparna */
+                width: 100%;
+                max-width: 280px; /* Maxbredd för centrerade knappar */
+                margin: 10px auto; /* Centrera och spacea ut */
+                box-sizing: border-box;
+            }
+
+            .profile-image-placeholder {
+                width: 80px;
+                height: 80px;
+                font-size: 1.6em;
+            }
+            header h1 {
+                font-size: 1.7em;
+            }
+            header p {
+                font-size: 0.95em;
+            }
+
+            .container {
+                padding: 20px 10px; /* Mindre padding på sidorna */
+            }
+            .resume-content-wrapper {
+                 padding: 20px 0;
+            }
+            .section {
+                padding: 15px; /* Mindre padding i sektioner */
+                margin-bottom: 20px;
+            }
+            .section h2 {
+                font-size: 1.25em;
+                margin-bottom: 12px;
+            }
+            .section ul li {
+                font-size: 0.9em;
+                padding-left: 18px; /* Mindre indrag */
+            }
+             .section ul li::before {
+                font-size: 1.2em; 
+            }
+
+            .job h3, .education-item h3, .other-experience-item h3 {
+                font-size: 1.05em;
+            }
+            .job .company, .education-item .institution, .other-experience-item .organization {
+                font-size: 0.95em;
+            }
+            .job .date, .education-item .date, .other-experience-item .date {
+                font-size: 0.8em;
+            }
+            .job p, .education-item p, .other-experience-item p {
+                font-size: 0.85em;
+            }
+
+            .skill-category {
+                font-size: 1em;
+            }
+            .skill {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+            
+            .modal-content {
+                padding: 20px; /* Mindre padding i modalen */
+                /* max-width: 95%; Redan 100% width med padding i .modal-overlay */
+            }
+            .modal-content h2 {
+                font-size: 1.2em;
+            }
+            .modal-content ul li {
+                font-size: 0.85em;
+            }
+            .close-modal-button {
+                font-size: 0.9em;
+                padding: 9px 16px;
+            }
+
+            .page-controls {
+                top: 5px;
+                right: 5px;
+            }
+             .lang-switcher button, .resume-nav-button {
+                padding: 6px 8px;
+                font-size: 0.75em;
+            }
+        }
+
+         @media (max-width: 480px) { /* Ytterligare justeringar för mycket små skärmar */
+            .hub-title {
+                font-size: 1.9em;
+            }
+            .hub-tagline {
+                font-size: 1em;
+            }
+             .hub-container p[data-translate-key="hub_intro_text"] {
+                font-size: 0.9em;
+            }
+             .profile-image-placeholder {
+                width: 70px;
+                height: 70px;
+                font-size: 1.4em;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            header p {
+                font-size: 0.85em;
+            }
+             .section h2 {
+                font-size: 1.15em;
+            }
+             .section ul li {
+                font-size: 0.85em;
+            }
+         }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-controls">
+        <div class="lang-switcher">
+            <button id="lang-en">EN</button>
+            <button id="lang-sv">SV</button>
+        </div>
+        <button id="backToHubButton" class="resume-nav-button" data-translate-key="nav_back_to_hub">Back to Hub</button>
+    </div>
+
+    <div class="hub-container" id="hubHome">
+        <div class="hub-title" data-translate-key="hub_main_title">WILLES HUB</div>
+        <div class="hub-tagline" id="hubTagline"></div>
+        <p data-translate-key="hub_intro_text" style="max-width: 650px; margin-bottom: 30px; color: var(--text-muted); font-size:1.1em; font-weight: 300;">
+            Welcome to my digital space. I'm Wille, a tech enthusiast passionate about innovative IT solutions and development. Dive in to explore my journey.
+        </p>
+        <div class="hub-cta-buttons">
+            <button class="cta-button primary" id="viewResumeButton" data-translate-key="hub_cta_resume">View Resume</button>
+            <button class="cta-button" id="openContactModalButton" data-translate-key="hub_cta_contact">Contact Me</button>
+        </div>
+    </div>
+
+    <div class="resume-content-wrapper" id="resumeSection">
+        <div class="container">
+            <header>
+                <div class="profile-image-placeholder">WH</div>
+                <h1 data-translate-key="header_name">Wille Hilmersson</h1>
+                <p data-translate-key="header_title">Service Desk & Workplace Technician</p>
+            </header>
+
+            <section id="about" class="section">
+                <h2 data-translate-key="about_title">About Me</h2>
+                <p data-translate-key="about_text">
+                    Technical problem solver with a strong sense of service and broad experience in IT support, infrastructure, and software development. I am passionate about creating smooth IT environments and delivering solutions that genuinely help users - especially in hybrid environments with M365, Azure, and Entra ID. With a background as both a developer and instructor, I have an unusually strong pedagogical ability and thrive in roles where people meet technology. I am now seeking the next challenge in IT support in the Öresund region.
+                </p>
+            </section>
+
+            <section id="experience" class="section">
+                <h2 data-translate-key="experience_title">Work Experience</h2>
+                <div class="job">
+                    <h3 data-translate-key="exp1_title">IT-Support & Workplace Technician</h3>
+                    <p class="company">Nordic Leisure Travel Group</p>
+                    <p class="date"><span data-translate-key="exp1_period_march">March</span> 2024 – <span data-translate-key="present">Present</span> <span data-translate-key="exp1_location" style="margin-left: 5px;"></span></p>
+                    <ul>
+                        <li data-translate-key="exp1_desc1">Daily support in a hybrid IT environment with M365, Azure & Entra ID</li>
+                        <li data-translate-key="exp1_desc2">Troubleshooting, incident management, and security matters</li>
+                        <li data-translate-key="exp1_desc3">Involved in internal development projects</li>
                     </ul>
-                </article>
-                <div class="share">
-                    <input type="checkbox" id="share4">
-                    <label for="share4">&#x293A;</label>
-                    <p>index.html#artikel4</p>
                 </div>
-			</section>
-            <section id="artikel2">
-				<div class="circlePhoto"></div>
-                <article>
-                    <h3>Problem på vägen</h3>
-                    <p>Kursen läser jag för att få en refresher i korrekt webbdesign. Därför stötte jag på en hel del fel jag gjort förr i tiden och som inte längre är godkända metoder. Ett exempel är att jag alltid har arbetat med relative, absolute och inline-block när jag skapat min design men nu behövde jag lära mig att jobba med elementens standardinställningar.</p>
-                    <p>Flexbox var till stor hjälp för att få struktur på hemsidan och faktiskt inte så krångligt när man väl börjat lära sig men ett problem jag stötte på med flexbox var att det inte gick att ändra bredden på sektionen utan att använda width, så om ni vet en bättre lösning tar jag gärna emot den, testade med flex-basis men det funkade inte med '%' då. Det kanske är korrekt att använda width ändå? <a href="https://stackoverflow.com/questions/36342921/specifing-width-of-a-flexbox-flex-item-width-or-basis" target="_blank">Referens.</a></p>
-                    <p>Några större problem hade jag inte eftersom jag alltid har jobbat i HTML5 och därför lärt mig det mesta från grunden, hur man jobbar med em, procent och gör hemsidan användarvänglig och responsiv. Jag skrev hemsidan i anteckningar så det blev problem med strukturen men det fixade jag genom att importera filerna till dreamweaver på datorn hemma. Så mottar gärna så mycket feedback som möjligt om ni upptäcker något jag gjort tokigt.</p>
-                </article>
-                <div class="share">
-                    <input type="checkbox" id="share2">
-                    <label for="share2">&#x293A;</label>
-                    <p>index.html#artikel2</p>
+                <div class="job">
+                    <h3 data-translate-key="exp2_title">Web Developer</h3>
+                    <p class="company">We Know IT</p>
+                    <p class="date"><span data-translate-key="exp2_period_oct">October</span> 2022 – <span data-translate-key="exp2_period_oct_end">October</span> 2023 <span data-translate-key="exp2_location" style="margin-left: 5px;"></span></p>
+                    <ul>
+                        <li data-translate-key="exp2_desc1">Fullstack development in client and internal projects</li>
+                        <li data-translate-key="exp2_desc2">Technical lead for 3 projects (React, Next.js, Firebase, etc.)</li>
+                        <li data-translate-key="exp2_desc3">Planning, time estimation, and delivery</li>
+                    </ul>
                 </div>
-            </section>
-            <section id="artikel3">
-				<div class="circlePhoto circleRight"></div>
-                <article>
-                    <h3>Filstruktur och källkod</h3>
-                    <p>Index.html och Bonus.html ligger i root mappen, sedan har jag planerat upplägget med en mapp för bilder, en för css kodning och hade även använt en till mapp för javascript om det var tillåtet. Stylingen på hemsidan är uppdelad i fyra olika filer, main.css, fonts.css, color.css och responsive.css &mdash; main innehåller uppbygnaden av alla element, fonts all styling på text(pesudo-klasser ingår även här) men inte färger, dem ligger i colors.css och motivationen till det är när stylingen blir väldigt stor så får man leta länge om man bara vill ändra något litet(Detta lärde jag mig när jag testade på <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. Enda anledningen att det användes för det här projektet var struktur och för att skapa en rutin, jag valde att inte döpa om bilderna ifall att ni ville kolla upp om de verkligen var tillåtna att använda.</p>
-                    <p>I källkoden kommer ni hitta diverse kommentarer som förklarar varför jag gjort vissa val och även där jag suddat ut koden utan att radera den, då ser ni att jag testat olika lösningar också.</p>
-                </article>
-                <div class="share">
-                    <input type="checkbox" id="share3">
-                    <label for="share3">&#x293A;</label>
-                    <p>index.html#artikel3</p>
+                <div class="job">
+                    <h3 data-translate-key="exp3_title">IT Support Technician</h3>
+                    <p class="company" data-translate-key="exp3_company">Consultancy work</p>
+                    <p class="date"><span data-translate-key="exp3_period_june">June</span> 2019 – <span data-translate-key="exp3_period_feb">February</span> 2023 <span data-translate-key="exp3_location" style="margin-left: 5px;"></span></p>
+                    <ul>
+                        <li data-translate-key="exp3_desc1">Performed various IT assignments focusing on user support, account management, client installations, and administrative work</li>
+                        <li data-translate-key="exp3_desc2">M365, Azure, On-prem AD, Printers, Conference rooms, etc.</li>
+                    </ul>
+                </div>
+                <h3 style="margin-top: 30px; color: var(--text-color); font-family: 'Roboto', sans-serif; font-weight:500; font-size: 1.15em;" data-translate-key="other_exp_title">Other Relevant Experience</h3>
+                <div class="other-experience-item">
+                    <h3 data-translate-key="other_exp1_title">Group Training Instructor</h3>
+                    <p class="organization">Nordic Wellness / Sats</p>
+                    <p class="date"><span data-translate-key="other_exp1_period_june">June</span> 2016 – <span data-translate-key="present">Present</span></p>
+                </div>
+                <div class="other-experience-item">
+                    <h3 data-translate-key="other_exp2_title">Floorball Referee</h3>
+                    <p class="organization" data-translate-key="other_exp2_org">Swedish Floorball Federation</p>
+                    <p class="date"><span data-translate-key="other_exp2_period_aug">August</span> 2012 – <span data-translate-key="present">Present</span></p>
                 </div>
             </section>
-			<section id="artikel4">
-				<div class="circlePhoto circleHidden"></div>
-                <article>
-                    <h3>Mitt designupplägg</h3>
-                    <p>Mitt mål var att skapa en hemsida som är enkel att nagivera då vi människor är lata och inte vill läsa en massa text utan att något händer. Första intrycket är en stor och välkomnande landbana som inte innehåller för mycket information. Här valde jag en bakgrundsbild som är trevlig för ögonen med färger som passar bra ihop på startsidan: sidhuvud med skog i bakgrunden och när man skrollar ned så lägger sig den bruna startsidan en snygg kontrast till sidans huvud. Alla bilder och fonter är godkända för kommersiellt syfte och hämtade från <a href="https://fonts.google.com/" target="_blank">google.com</a>, <a href="https://pixabay.com" target="_blank">pixabay.com</a> och <a href="https://www.uxwing.com/" target="_blank">uxwing.com</a>.</p>
-                    <p>Sidan följer HTML5 standard med en header för sidhuvudet, där i har jag placerat min "hemknapp" eller logga och en navigeringbar. För att få elementen på plats använde jag flexbox som gör att strukturen på hemsidan är lätt att styra utan att oroa sig för spaghetti-kod. Länkarna är uppbyggda i en lista för att ge stöd åt skärmläsare och för att skapa struktur. Alla länkar är designade för att följa färgschemat och ge kontrast mot den tjocka texten i landbanan. Istället för att länka till flera olika html sidor så la jag huvudinnehållet under index men gjorde hemsidan i flera olika 'lager' och med hjälp av smooth scrolling och ankare är det möjligt utan Javascript, fast hade javascript varit tillåtet hade jag använt det utöver. </p>
-                    <p>Den här sidan du läser nu är tänkt att skapa kontrast till ladning page, samtidigt som sista sidan ger dig känslan av att ha skrollat genom jorden ner till australien. Ett undantag jag gjode från mallen var att jag la sista sektionen som en stor under dem tre övre för att det blev finare än att ha fyra smala bredvid varandra. Motivet på den här sidan var <em>natur</em>, </p>
-                    <p>För att underlätta för mig själv så gjorde jag hemsidan användarvänlig från början genom att arbeta med procent och em. Jag undvek nästan helt och hållet bestämda enheter så som px, pt för att göra så lite ändringar som möjligt i den mobilvänliga layouten.</p>
-                </article>
-                <div class="share">
-                    <input type="checkbox" id="share1">
-                    <label for="share1">&#x293A;</label>
-                    <p>index.html#artikel1</p>
+
+            <section id="skills" class="section">
+                <h2 data-translate-key="skills_title">Skills</h2>
+                 <div class="skill-category" data-translate-key="skills_cat1">IT Operations & Support</div>
+                <div class="skills-container">
+                    <div class="skill">M365</div><div class="skill">Azure</div><div class="skill">Entra ID</div><div class="skill">Active Directory</div>
+                    <div class="skill" data-translate-key="skill_incident">Incident & Security Management</div>
+                    <div class="skill" data-translate-key="skill_troubleshooting">Troubleshooting</div>
+                    <div class="skill">Windows</div><div class="skill">macOS</div>
+                    <div class="skill" data-translate-key="skill_networking">Networking</div><div class="skill" data-translate-key="skill_hardware">Hardware</div>
+                </div>
+                <div class="skill-category" data-translate-key="skills_cat2">Development & Technology</div>
+                <div class="skills-container">
+                    <div class="skill">React</div><div class="skill">Next.js</div><div class="skill">Node.js</div><div class="skill">TypeScript</div>
+                    <div class="skill">Google Cloud</div><div class="skill">Firebase</div><div class="skill">SQL</div><div class="skill">Java</div>
+                </div>
+                <div class="skill-category" data-translate-key="skills_cat_lang">Languages</div>
+                <div class="skills-container">
+                    <div class="skill" data-translate-key="lang_sv">Swedish (Native)</div><div class="skill" data-translate-key="lang_en">English (Fluent)</div>
+                    <div class="skill" data-translate-key="lang_da">Danish (Very good)</div><div class="skill" data-translate-key="lang_no">Norwegian (Very good)</div>
                 </div>
             </section>
+
+            <section id="education" class="section">
+                <h2 data-translate-key="education_title">Education</h2>
+                <div class="education-item">
+                    <h3 data-translate-key="edu1_degree">Software Engineering and Management</h3>
+                    <p class="institution" data-translate-key="edu1_uni">University of Gothenburg</p>
+                    <p class="date"><span data-translate-key="edu1_period_aug">August</span> 2021 – <span data-translate-key="edu1_period_march">March</span> 2024</p>
+                    <p data-translate-key="edu1_desc">Description: Software Architecture, Agile Development, Fullstack</p>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2 data-translate-key="projects_title">Projekt</h2>
+                
+                <div class="job"> <h3 data-translate-key="project1_name">Skåre 2024</h3>
+                    <p class="date">2023</p>
+                    <p data-translate-key="project1_desc">Ett verktyg för att hjälpa klasskompisar att presentera men också hitta åk-kompisar på vår gemensamma skidresa 2024.</p>
+                    <p>
+                        <strong data-translate-key="projects_tech_label">Tekniker:</strong> 
+                        <span>Next.JS, Firebase Auth, Firestore, Bootstrap, Typescript.</span>
+                    </p>
+                    <p><a href="https://skiweek.vercel.app/" target="_blank" class="project-link" data-translate-key="projects_view_link">Besök Projektet</a></p>
+                </div>
+
+                <div class="job">
+                    <h3 data-translate-key="project2_name">OSBot Scripts</h3>
+                    <p class="date">2024</p>
+                    <p data-translate-key="project2_desc">Flera script i Java som arbetar mot en API för att hjälpa användare automatisera uppgifter i spelet "Old School RuneScape".</p>
+                     <p>
+                        <strong data-translate-key="projects_tech_label">Tekniker:</strong> 
+                        <span>Java, OSBot API.</span>
+                    </p>
+                    <p><a href="https://sloppybot.vercel.app/" target="_blank" class="project-link" data-translate-key="projects_view_link">Besök Projektet</a></p>
+                </div>
+
+                <div class="job">
+                    <h3 data-translate-key="project3_name">Kloaken</h3>
+                    <p class="date">2023</p>
+                    <p data-translate-key="project3_desc">Ett webbaserat dryckesspel designat för social interaktion och gruppdynamik. Genom att ansluta till spelets sessioner får användarna tillgång till underhållande utmaningar och frågor, vilket skapar en lättsam atmosfär och främjar sociala interaktioner.</p>
+                    <p>
+                        <strong data-translate-key="projects_tech_label">Tekniker:</strong> 
+                        <span>Next.JS, Firebase Auth, Firestore, Bootstrap, Typescript.</span>
+                    </p>
+                    <p><a href="https://kloaken.se" target="_blank" class="project-link" data-translate-key="projects_view_link">Besök Projektet</a></p>
+                </div>
+                </section>
+            
+            <footer>
+                <p>&copy; <span id="currentYear"></span> Wille Hilmersson - Willes Hub. <span data-translate-key="footer_rights">All rights reserved.</span></p>
+            </footer>
         </div>
-        <div class="wrap" id="referenser">
-            <article class="takeOff">
-                <h3>Källor, referenser och hjälpmedel</h3>
-                <ul class="credits">
-                    <li>
-                        <h4>Bilder</h4>
-                        <ul>
-                            <li>boy-6158164.jpg - <a href="https://pixabay.com/photos/boy-child-lake-bank-field-river-6158164/" target="_blank">pixabay</a></li>
-                            <li>dirt - <a href="https://pixabay.com/photos/dirt-soil-potting-mix-ground-mud-947985/" target="_blank">Pixabay</a></li>
-                            <li>koala.png - <a href="https://pixabay.com/photos/koala-marsupial-herbivore-arboreal-4757210/" target="_blank">Pixabay</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>Fonter</h4>
-                        <ul>
-                            <li>Source Sans Pro - <a href="https://fonts.google.com/specimen/Source+Sans+Pro" target="_blank">Paul D. Hunt</a></li>
-                            <li>Roboto - <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Christian Robertson</a></li>
-                            <li>Open Sans - <a href="https://fonts.google.com/specimen/Open+Sans" target="_blank">Steve Matteson</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>Guider</h4>
-                        <ul>
-                            <li>A complete guide to Flexbox - <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Chris Coyier</a></li>
-                            <li>Design Considerations: Text on Images - <a href="https://css-tricks.com/design-considerations-text-images" target="_blank">Chris Coyier</a></li>
-                            <li><a href="" target="_blank">Startsida</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>Kodning</h4>
-                        <ul>
-                            <li>Advanced Checkbox Hack - <a href="https://codepen.io/TimPietrusky/pen/fHmiI" target="_blank">Tim Pietrusky</a></li>
-                            <li>Full Page Images - <a href="https://css-tricks.com/design-considerations-text-images/#full-page-images">Chris Coyier</a></li>
-                            <li><s>Adjust list style image position</s> - <a href="https://stackoverflow.com/a/1709271" target="_blank">a darren</a></li>
-                            <li>CSS Media Queries for Desktop, Tablet, Mobile - <a href="https://gist.github.com/gokulkrishh/242e68d1ee94ad05f488" target="_blank">gokulkrishh</a></li>
-                            <li>Chrome Device Mode Emulation Media Queries Not Working - <a href="https://stackoverflow.com/questions/26888751/chrome-device-mode-emulation-media-queries-not-working" target="_blank">BananaNeil</a></li>
-							<li>How To - Height Equal to Width - <a href="https://www.w3schools.com/howto/howto_css_aspect_ratio.asp" target="_blank">W3Schools</a></li>
-                        </ul>
-                    </li>
-					
-                </ul>
-            </article>
+    </div>
+
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <h2 data-translate-key="contact_title_modal">Contact Me</h2>
+            <p data-translate-key="contact_intro_modal" style="color: var(--text-muted); margin-bottom: 20px;">I'm always open to discussing new opportunities and collaborations.</p>
+            <ul>
+                <li><span data-translate-key="contact_email_label">Email:</span> <a href="mailto:willeforbusiness@outlook.com">willeforbusiness@outlook.com</a></li>
+                <li><span data-translate-key="contact_linkedin_label">LinkedIn:</span> <a href="https://www.linkedin.com/in/wille-hilmersson/" target="_blank" data-translate-key="contact_linkedin_link_text">[Your LinkedIn Profile]</a></li>
+                <li><span data-translate-key="contact_website_label">Website:</span> <a href="http://willeshub.fun" target="_blank">willeshub.fun</a></li>
+            </ul>
+            <button class="close-modal-button" id="closeContactModalButton" data-translate-key="contact_close_modal_btn">Close</button>
         </div>
-        <footer>
-            <div class="footerDiv">
-				<a href="#top">Ta mig till toppen</a>
-				<a href="kontakt.html#start">Kontakta mig</a>
-            	<a href="bonus.html">Bonussidan</a>
-			</div>
-        </footer>
-    </body>
+    </div>
+
+
+    <script>
+        const translations = {
+            en: {
+                hub_main_title: "WILLES HUB",
+                hub_tagline_text: "Exploring Technology. Building Solutions.",
+                hub_intro_text: "Welcome to my digital space. I'm Wille, a tech enthusiast passionate about innovative IT solutions and development. Dive in to explore my journey.",
+                hub_cta_resume: "View Resume",
+                hub_cta_contact: "Contact Me",
+                nav_back_to_hub: "Back to Hub",
+                contact_title_modal: "Contact Me",
+                contact_intro_modal: "I'm always open to discussing new opportunities and collaborations.",
+                contact_close_modal_btn: "Close",
+                nav_about: "About", nav_experience: "Experience", nav_skills: "Skills", nav_education: "Education", nav_projects: "Projects",
+                header_name: "Wille Hilmersson", header_title: "Service Desk & Workplace Technician",
+                about_title: "About Me", about_text: "Technical problem solver with a strong sense of service and broad experience in IT support, infrastructure, and software development. I am passionate about creating smooth IT environments and delivering solutions that genuinely help users - especially in hybrid environments with M365, Azure, and Entra ID. With a background as both a developer and instructor, I have an unusually strong pedagogical ability and thrive in roles where people meet technology. I am now seeking the next challenge in IT support in the Öresundsregionen.",
+                experience_title: "Work Experience", exp1_title: "IT-Support & Workplace Technician", exp1_location: "", exp1_period_march: "March", present: "Present",
+                exp1_desc1: "Daily support in a hybrid IT environment with M365, Azure & Entra ID", exp1_desc2: "Troubleshooting, incident management, and security matters", exp1_desc3: "Involved in internal development projects",
+                exp2_title: "Web Developer", exp2_location: "", exp2_period_oct: "October", exp2_period_oct_end: "October",
+                exp2_desc1: "Fullstack development in client and internal projects", exp2_desc2: "Technical lead for 3 projects (React, Next.js, Firebase, etc.)", exp2_desc3: "Planning, time estimation, and delivery",
+                exp3_title: "IT Support Technician", exp3_company: "Consultancy work", exp3_location: "", exp3_period_june: "June", exp3_period_feb: "February",
+                exp3_desc1: "Performed various IT assignments focusing on user support, account management, client installations, and administrative work", exp3_desc2: "M365, Azure, On-prem AD, Printers, Conference rooms, etc.",
+                other_exp_title: "Other Relevant Experience", other_exp1_title: "Group Training Instructor", other_exp1_period_june: "June",
+                other_exp2_title: "Floorball Referee", other_exp2_org: "Swedish Floorball Federation", other_exp2_period_aug: "August",
+                skills_title: "Skills", skills_cat1: "IT Operations & Support", skill_incident: "Incident & Security Management", skill_troubleshooting: "Troubleshooting", skill_networking: "Networking", skill_hardware: "Hardware",
+                skills_cat2: "Development & Technology", skills_cat_lang: "Languages", lang_sv: "Swedish (Native)", lang_en: "English (Fluent)", lang_da: "Danish (Very good)", lang_no: "Norwegian (Very good)",
+                education_title: "Education", edu1_degree: "Software Engineering and Management", edu1_uni: "University of Gothenburg", edu1_period_aug: "August", edu1_period_march: "March", edu1_desc: "Description: Software Architecture, Agile Development, Fullstack",
+                projects_title: "Projects", // Behåll eller uppdatera om du hade en annan nyckel
+                projects_tech_label: "Technologies:",
+                projects_view_link: "Visit Project",
+                project1_name: "Skåre 2024",
+                project1_desc: "A tool to help classmates present and find travel companions for our joint ski trip in 2024.",
+                project2_name: "OSBot Scripts",
+                project2_desc: "Several scripts in Java working with an API to help users automate tasks in the game \"Old School RuneScape\".",
+                project3_name: "Kloaken",
+                project3_desc: "A web-based drinking game designed for social interaction and group dynamics. By connecting to the game's sessions, users access entertaining challenges and questions, creating a light-hearted atmosphere and promoting social interactions.",
+                contact_email_label: "Email:", contact_linkedin_label: "LinkedIn:", contact_linkedin_link_text: "https://www.linkedin.com/in/wille-hilmersson/",
+                contact_github_label: "GitHub:", contact_github_link_text: "[Your GitHub Profile]", contact_website_label: "Website:", contact_phone_label: "Phone:",
+                footer_rights: "All rights reserved."
+            },
+            sv: {
+                hub_main_title: "WILLES HUBB",
+                hub_tagline_text: "Utforskar Teknik. Bygger Lösningar.",
+                hub_intro_text: "Välkommen till min digitala sfär. Jag är Wille, en teknikentusiast med passion för innovativa IT-lösningar och utveckling. Dyk in för att utforska min resa.",
+                hub_cta_resume: "Visa CV",
+                hub_cta_contact: "Kontakta Mig",
+                nav_back_to_hub: "Till Hubben",
+                contact_title_modal: "Kontakta Mig",
+                contact_intro_modal: "Jag är alltid öppen för att diskutera nya möjligheter och samarbeten.",
+                contact_close_modal_btn: "Stäng",
+                nav_about: "Om mig", nav_experience: "Arbetslivserfarenhet", nav_skills: "Kompetenser", nav_education: "Utbildning", nav_projects: "Projekt",
+                header_name: "Wille Hilmersson", header_title: "Service Desk & Workplace Tekniker",
+                about_title: "Profil", about_text: "Teknisk problemlösare med stark servicekänsla och bred erfarenhet inom IT-support, infrastruktur och mjukvaruutveckling. Jag brinner för att skapa smidiga IT-miljöer och leverera lösningar som verkligen hjälper användarna - särskilt i hybridmiljöer med M365, Azure och Entra ID. Med bakgrund som både utvecklare och instruktör har jag en ovanligt stark pedagogisk förmåga och trivs i roller där människa möter teknik. Nu söker jag nästa utmaning inom IT-support i Öresundsregionen.",
+                experience_title: "Arbetslivserfarenhet", exp1_title: "IT-Support & Workplace Technician", exp1_location: "", exp1_period_march: "Mar", present: "Pågående",
+                exp1_desc1: "Daglig support i hybrid IT-miljö med M365, Azure & Entra ID", exp1_desc2: "Felsökning, incidenthantering och säkerhetsärenden", exp1_desc3: "Involverad i interna utvecklingsprojekt",
+                exp2_title: "Webbutvecklare", exp2_location: "", exp2_period_oct: "Okt", exp2_period_oct_end: "Okt",
+                exp2_desc1: "Fullstackutveckling i kund- och internprojekt", exp2_desc2: "Teknisk ledare för 3 projekt (React, Next.js, Firebase m.m.)", exp2_desc3: "Planering, tidsuppskattning och leverans",
+                exp3_title: "IT Supporttekniker", exp3_company: "Konsultarbete", exp3_location: "", exp3_period_june: "Jun", exp3_period_feb: "Feb",
+                exp3_desc1: "Utförde olika IT-uppdrag med fokus på användarsupport, kontohantering, klientinstallationer och administrativt arbete", exp3_desc2: "M365, Azure, Onprem AD, Skrivare, Konferensrum mflr.",
+                other_exp_title: "Övrig Relevant Erfarenhet", other_exp1_title: "Gruppträningsinstruktör", other_exp1_period_june: "Jun",
+                other_exp2_title: "Innebandydomare", other_exp2_org: "Svensk Innebandy", other_exp2_period_aug: "Aug",
+                skills_title: "Kompetenser", skills_cat1: "IT-drift & Support", skill_incident: "Incident- & säkerhetshantering", skill_troubleshooting: "Felsökning", skill_networking: "Nätverk", skill_hardware: "Hårdvara",
+                skills_cat2: "Utveckling & Teknik", skills_cat_lang: "Språk", lang_sv: "Svenska (Modersmål)", lang_en: "Engelska (Flytande)", lang_da: "Danska (Mycket bra)", lang_no: "Norska (Mycket bra)",
+                education_title: "Utbildning", edu1_degree: "Software Engineering and Management", edu1_uni: "Göteborgs Universitet", edu1_period_aug: "Aug", edu1_period_march: "Mar", edu1_desc: "Beskrivning: Mjukvaruarkitektur, Agil utveckling, Fullstack",
+                projects_title: "Projekt", // Behåll eller uppdatera
+                projects_tech_label: "Tekniker:",
+                projects_view_link: "Besök Projektet",
+                project1_name: "Skåre 2024", // Från PDF [cite: 8]
+                project1_desc: "Ett verktyg för att hjälpa klasskompisar att presentera men också hitta åk-kompisar på vår gemensamma skidresa 2024.", // Från PDF [cite: 8]
+                project2_name: "OSBot Scripts", // Anpassat från "OSBot" i PDF [cite: 8]
+                project2_desc: "Flera script i Java som arbetar mot en API för att hjälpa användare automatisera uppgifter i spelet \"Old School RuneScape\".", // Från PDF [cite: 8]
+                project3_name: "Kloaken", // Från PDF [cite: 8]
+                project3_desc: "Ett webbaserat dryckesspel designat för social interaktion och gruppdynamik. Genom att ansluta till spelets sessioner får användarna tillgång till underhållande utmaningar och frågor, vilket skapar en lättsam atmosfär och främjar sociala interaktioner.", // Från PDF [cite: 8]
+                contact_email_label: "E-post:", contact_linkedin_label: "LinkedIn:", contact_linkedin_link_text: "https://www.linkedin.com/in/wille-hilmersson/",
+                contact_github_label: "GitHub:", contact_github_link_text: "[Din GitHub Profil]", contact_website_label: "Webbplats:", contact_phone_label: "Telefon:",
+                footer_rights: "Alla rättigheter förbehållna."
+            }
+        };
+
+        let currentLang = 'sv'; 
+        let typingInProgress = false;
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            $('[data-translate-key]').each(function() {
+                const key = $(this).data('translate-key');
+                if (translations[lang] && typeof translations[lang][key] !== 'undefined') {
+                    $(this).html(translations[lang][key]);
+                } else if (translations['en'] && typeof translations['en'][key] !== 'undefined') { 
+                    $(this).html(translations['en'][key]);
+                }
+            });
+            $('.lang-switcher button').removeClass('active-lang');
+            $('#lang-' + lang).addClass('active-lang');
+            
+            const taglineText = translations[currentLang].hub_tagline_text || translations.en.hub_tagline_text;
+            typeText($('#hubTagline'), taglineText);
+        }
+
+        function typeText($element, textToType) {
+            if (typingInProgress) return;
+            typingInProgress = true;
+            $element.html(''); 
+            let i = 0;
+            const speed = 90; 
+            
+            function type() {
+                if (i < textToType.length) {
+                    $element.append(textToType.charAt(i));
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    $element.append('<span class="typing-cursor"></span>');
+                    typingInProgress = false;
+                }
+            }
+            type();
+        }
+
+        $(document).ready(function(){
+            setLanguage(currentLang); 
+            $('#currentYear').text(new Date().getFullYear());
+
+            // Show Resume with Simplified Animation (for debugging)
+            $('#viewResumeButton').on('click', function() {
+                if ($('#resumeSection').is(':hidden')) { 
+                    $('#hubHome').slideUp(400);
+                    
+                    // Reset sections for animation - this ensures they are in their "hidden" state
+                    $('#resumeSection .section').removeClass('visible').css({'opacity': '0', 'transform': 'translateY(20px)'});
+                    
+                    $('#resumeSection').slideDown(600, function() { // slideDown the main wrapper
+                        $('html, body').animate({ scrollTop: ($('#resumeSection').offset().top - 20) }, 300);
+                        
+                        // **FÖRENKLING:** Gör alla sektioner synliga direkt.
+                        // CSS-övergången på .section bör få dem att animera.
+                        // Om detta fungerar, är problemet i den stegvisa logiken.
+                        // Om detta INTE fungerar, är problemet troligen i CSS för .section/.section.visible
+                        // eller hur slideDown() beter sig.
+                        $('#resumeSection .section').addClass('visible'); 
+                    });
+                    $('#backToHubButton').fadeIn();
+                } else { 
+                    // If resume is already visible, perhaps just scroll to top of it
+                    $('html, body').animate({ scrollTop: ($('#resumeSection').offset().top - 20) }, 400);
+                }
+            });
+            
+            // Contact Modal Logic
+            const $contactModal = $('#contactModal');
+            $('#openContactModalButton').on('click', function() {
+                $contactModal.addClass('visible');
+            });
+
+            $('#closeContactModalButton').on('click', function() {
+                $contactModal.removeClass('visible');
+            });
+
+            $contactModal.on('click', function(event) {
+                if ($(event.target).is($contactModal)) {
+                    $contactModal.removeClass('visible');
+                }
+            });
+            
+            // Back to Hub
+            $('#backToHubButton').on('click', function() {
+                $('#resumeSection .section').removeClass('visible').css({'opacity':'0', 'transform':'translateY(20px)'});
+                $('#resumeSection').slideUp(400, function() {
+                     $('html, body').animate({ scrollTop: 0 }, 300);
+                });
+                $('#hubHome').slideDown(600);
+                $(this).fadeOut();
+            });
+            
+            $('#lang-en').on('click', function() { setLanguage('en'); });
+            $('#lang-sv').on('click', function() { setLanguage('sv'); });
+        });
+    </script>
+
+</body>
 </html>
