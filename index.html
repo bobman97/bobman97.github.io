@@ -411,7 +411,51 @@
         .close-modal-button:hover {
             background: var(--secondary-accent);
         }
-        
+
+
+        /* Animation to "erase" text from left to right */
+        @keyframes effectEraseLtr {
+            from {
+                clip-path: inset(0 0 0 0%); /* Fully visible: top, right, bottom, left(0%) */
+                opacity: 1;
+            }
+            to {
+                clip-path: inset(0 0 0 100%); /* Left edge moves to 100%, making it invisible */
+                opacity: 0;
+            }
+        }
+
+        /* Animation to "swoop in" text from left to right */
+        @keyframes effectSwoopInLtr {
+            from {
+                clip-path: inset(0 100% 0 0); /* Starts fully clipped from the right, appearing to come from left */
+                opacity: 0;
+                /* transform: translateX(-10px); /* Optional: slight movement from left for "swoop" */
+            }
+            /* You could add a middle keyframe for a more complex opacity/transform curve if desired */
+            /* 50% { opacity: 0.5; transform: translateX(-5px); } */
+            to {
+                clip-path: inset(0 0 0 0); /* Fully visible */
+                opacity: 1;
+                /* transform: translateX(0); */
+            }
+        }
+
+        .apply-erase-ltr {
+            /* Initial state before erase (visible) set by default element styles or a base class */
+            opacity: 1; /* Make sure it's visible before starting to erase */
+            clip-path: inset(0 0 0 0);
+            animation: effectEraseLtr 0.5s forwards; /* Adjust duration (0.5s) as needed */
+        }
+
+        .apply-swoop-in-ltr {
+            /* Initial state for swoop-in (invisible, ready to be revealed from left) */
+            opacity: 0;
+            clip-path: inset(0 100% 0 0);
+            animation: effectSwoopInLtr 0.5s forwards; /* Adjust duration (0.5s) as needed */
+            /* animation-delay: 0.1s; /* Optional: slight delay before swoop-in starts */
+        }
+                
         @keyframes fadeInElement {
             from { opacity:0; transform: translateY(10px); }
             to { opacity:1; transform: translateY(0); }
@@ -870,35 +914,126 @@
 
 
         function typeText($element, textToType) {
-            if (typeTextTimeoutId) { // Clear any existing timeout for this typing instance
-                clearTimeout(typeTextTimeoutId);
-                typeTextTimeoutId = null;
-            }
+    if (typeTextTimeoutId) {
+        clearTimeout(typeTextTimeoutId);
+        typeTextTimeoutId = null;
+    }
+    $element.html('');
+    let i = 0;
+    const speed = 90;
+    typingInProgress = true;
 
-            // typingInProgress = true; // Moved this to be set just before starting the loop
-            $element.html(''); // Clears old text
-            let i = 0;
-            const speed = 90;
-            
-            typingInProgress = true; // Set flag that typing is now active
-
-            function type() {
-                if (!typingInProgress) { // If flag was set to false externally (e.g., by setLanguage)
-                    $element.html(''); // Clear partially typed text
-                    return;
-                }
-                if (i < textToType.length) {
-                    $element.append(textToType.charAt(i));
-                    i++;
-                    typeTextTimeoutId = setTimeout(type, speed); // Store the timeout ID
-                } else {
-                    $element.append('<span class="typing-cursor"></span>');
-                    typingInProgress = false; // Typing complete
-                    typeTextTimeoutId = null;
-                }
-            }
-            type();
+    function type() {
+        if (!typingInProgress) {
+            $element.html('');
+            return;
         }
+        if (i < textToType.length) {
+            $element.append(textToType.charAt(i));
+            i++;
+            typeTextTimeoutId = setTimeout(type, speed);
+        } else {
+            $element.append('<span class="typing-cursor"></span>');
+            typingInProgress = false;
+            typeTextTimeoutId = null;
+        }
+    }
+    type();
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // 1. Stop current tagline animation & clear relevant elements
+    if (typeTextTimeoutId) {
+        clearTimeout(typeTextTimeoutId);
+        typeTextTimeoutId = null;
+    }
+    typingInProgress = false;
+    const $hubTagline = $('#hubTagline');
+    // Clear any previous animation classes and content, and reset inline styles
+    $hubTagline.html('').removeClass('apply-erase-ltr apply-swoop-in-ltr').css({'opacity': '', 'clip-path': ''});
+
+    const $translatableElements = $('[data-translate-key]');
+    $translatableElements.removeClass('apply-erase-ltr apply-swoop-in-ltr').css({'opacity': '', 'clip-path': ''});
+
+    const $elementsToAnimate = $translatableElements.add($hubTagline);
+    const animationDuration = 500; // Should match CSS animation duration (e.g., 0.5s = 500ms)
+
+    // 2. "Erase" Animation (Fade out LTR)
+    const erasePromises = [];
+    $elementsToAnimate.each(function() {
+        const $el = $(this);
+        const d = $.Deferred();
+        // Ensure it's visible (opacity 1, no clipping) before erase animation starts
+        // The .apply-erase-ltr class itself defines the animation from this state.
+        $el.css({'opacity': 1, 'clip-path': 'inset(0 0 0 0)'}).addClass('apply-erase-ltr');
+
+        $el.one('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function() {
+            d.resolve($el);
+        });
+        setTimeout(function() { d.resolve($el); }, animationDuration + 100); // Fallback
+        erasePromises.push(d.promise());
+    });
+
+    $.when.apply($, erasePromises).done(function() {
+        $elementsToAnimate.removeClass('apply-erase-ltr'); // Clean up erase class
+
+        // 3. Update HTML content
+        $translatableElements.each(function() {
+            const $element = $(this);
+            const key = $element.data('translate-key');
+            if (translations[lang] && typeof translations[lang][key] !== 'undefined') {
+                $element.html(translations[lang][key]);
+            } else if (translations['en'] && typeof translations['en'][key] !== 'undefined') {
+                $element.html(translations['en'][key]);
+            } else {
+                $element.html('');
+            }
+        });
+
+        $('.lang-switcher button').removeClass('active-lang');
+        $('#lang-' + lang).addClass('active-lang');
+
+        // 4. "Swoop In" Animation (Fade in LTR)
+        if ($elementsToAnimate.length > 0) {
+            void $elementsToAnimate[0].offsetWidth; // Force reflow
+        }
+
+        const swoopInPromises = [];
+        $elementsToAnimate.each(function() {
+            const $el = $(this);
+            const d = $.Deferred();
+            // .apply-swoop-in-ltr sets initial opacity: 0 and clip-path for the animation
+            $el.addClass('apply-swoop-in-ltr');
+
+            $el.one('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function() {
+                $el.removeClass('apply-swoop-in-ltr');
+                $el.css({'opacity': 1, 'clip-path': 'none'}); // Ensure final state
+                d.resolve($el);
+            });
+            setTimeout(function() { // Fallback
+                $el.removeClass('apply-swoop-in-ltr');
+                $el.css({'opacity': 1, 'clip-path': 'none'});
+                d.resolve($el);
+            }, animationDuration + 100);
+            swoopInPromises.push(d.promise());
+        });
+
+        $.when.apply($, swoopInPromises).done(function() {
+            const newTaglineText = translations[currentLang].hub_tagline_text || translations.en.hub_tagline_text;
+            if (newTaglineText) {
+                $hubTagline.css({'opacity': 1, 'clip-path': 'none'}); // Ensure final state before typing
+                typeText($hubTagline, newTaglineText);
+            } else {
+                $hubTagline.html('');
+                typingInProgress = false;
+            }
+        });
+    });
+}
+
 
         // Helper function to check if an element is in viewport
         // offset: how many pixels from the bottom of the viewport the element top should be before animating
